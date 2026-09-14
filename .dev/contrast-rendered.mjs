@@ -27,14 +27,35 @@ const page = await ( await browser.newContext( { viewport: { width: 1400, height
 
 await page.goto( site + path, { waitUntil: 'networkidle', timeout: 90000 } );
 
+// PATO_DARK=1 measures the same page with dark mode on, which is where the
+// palette is lifted rather than replaced and is the likeliest place for a
+// pairing to fall under AA.
+if ( process.env.PATO_DARK ) {
+	await page.evaluate( () => {
+		document.documentElement.classList.add( 'pato-dark' );
+	} );
+	await page.waitForTimeout( 400 );
+}
+
 const findings = await page.evaluate( () => {
 	const luminance = ( colour ) => {
-		const parts = colour.match( /[\d.]+/g );
+		// Two syntaxes to handle. getComputedStyle returns `rgb(r, g, b)` with
+		// 0-255 channels for ordinary colours, but anything produced by
+		// color-mix() -- which is how dark mode lifts the brand colour -- comes
+		// back as `color(srgb 0.93 0.27 0.29)`, on a 0-1 scale. Reading those
+		// as 0-255 divides them by 255 again and reports every pair at about
+		// 1.16:1, which looks exactly like a catastrophic contrast failure and
+		// is purely a parsing bug.
+		const modern = colour.trim().startsWith( 'color(' );
+		const parts = colour.match( /[\d.]+(?:e-?\d+)?/g );
 		if ( ! parts ) {
 			return null;
 		}
-		const [ r, g, b ] = parts.slice( 0, 3 ).map( ( v ) => {
-			v = Number( v ) / 255;
+		const channels = parts.slice( modern ? 0 : 0, modern ? 3 : 3 );
+		const [ r, g, b ] = channels.map( ( v ) => {
+			v = Number( v );
+			v = modern ? v : v / 255;
+			v = Math.min( 1, Math.max( 0, v ) );
 			return v <= 0.03928 ? v / 12.92 : Math.pow( ( v + 0.055 ) / 1.055, 2.4 );
 		} );
 		return 0.2126 * r + 0.7152 * g + 0.0722 * b;

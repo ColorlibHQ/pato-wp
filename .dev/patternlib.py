@@ -142,12 +142,18 @@ def paragraph(text, align=None, color=None, size=None, style=None,
     )
 
 
-def button(text, url="#", style=None, width=None):
+def button(text, url="#", style=None, width=None, extra_class=None):
     data = {}
     cls = ["wp-block-button"]
     if style:
         data["className"] = "is-style-" + style
         cls.append("is-style-" + style)
+    if extra_class:
+        # Has to reach the block's className attribute, not just the markup:
+        # render_block_core/button reads the attribute, and a class that exists
+        # only in the HTML is invisible to it.
+        data["className"] = (data.get("className", "") + " " + extra_class).strip()
+        cls.append(extra_class)
     if width:
         data["width"] = width
         cls.append("has-custom-width wp-block-button__width-%d" % width)

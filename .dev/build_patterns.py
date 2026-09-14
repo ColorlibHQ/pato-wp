@@ -90,12 +90,23 @@ def build_header():
         }).strip() + ' /-->'
     )
 
-    book = buttons([button("Book a table", "#pato-reservation")], align="right")
+    # The dark-mode switch sits beside the booking button. The class goes on
+    # the BUTTON, not the wrapper: the script binds everything carrying it, so
+    # a class on both would toggle twice per click.
+    actions = buttons([
+        # Not an empty button: WordPress renders nothing at all for a
+        # core/button with no text, so the toggle silently vanished from the
+        # header. The label is real and simply not shown — the icon is a
+        # ::before, and a control with no accessible name is useless anyway.
+        button('<span class="screen-reader-text">Toggle dark mode</span>',
+               "#", style="pato-ghost", extra_class="pato-scheme-toggle"),
+        button("Book a table", "#pato-reservation"),
+    ], align="right", gap="20")
 
     inner = columns([
-        column(brand, width="30%", vertical="center"),
-        column(nav, width="52%", vertical="center"),
-        column(book, width="18%", vertical="center"),
+        column(brand, width="28%", vertical="center"),
+        column(nav, width="48%", vertical="center"),
+        column(actions, width="24%", vertical="center"),
     ], align="wide", vertical="center", stack_on_mobile=True)
 
     write(

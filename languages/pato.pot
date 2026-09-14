@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pato 1.0.0\n"
+"Project-Id-Version: Pato 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/pato-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-14T14:07:55+00:00\n"
+"POT-Creation-Date: 2026-09-14T14:40:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pato\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "A block theme for restaurants, bistros, cafés and bars. Ships lunch and dinner menu layouts with prices, a reservation panel, opening hours, chef profiles, events, a filterable gallery and review carousels — eight colour palettes, three type pairings and full-site editing throughout. Works with any form plugin, or on its own."
+msgid "A block theme for restaurants, bistros, cafés and bars. Six one-click starter sites, lunch and dinner menus with prices, a reservation form that needs no plugin, opening hours, chef profiles, private dining, a gallery and reviews — eight colour palettes, five type pairings, visitor dark mode and WooCommerce support. Full site editing throughout."
 msgstr ""
 
 #. Author of the theme
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: inc/front-page-setup.php:205
+#: inc/front-page-setup.php:240
 msgid "Primary"
 msgstr ""
 
@@ -193,10 +193,111 @@ msgstr ""
 msgid "[%s] Table request"
 msgstr ""
 
+#: inc/scheme.php:96
+#: inc/scheme.php:127
+msgid "Switch to dark mode"
+msgstr ""
+
+#: inc/scheme.php:97
+msgid "Switch to light mode"
+msgstr ""
+
+#: inc/starter-sites.php:35
+msgid "Bistro"
+msgstr ""
+
+#: inc/starter-sites.php:36
+msgid "A neighbourhood restaurant: menu, reviews and a booking form."
+msgstr ""
+
+#: inc/starter-sites.php:41
+msgid "Fine dining"
+msgstr ""
+
+#: inc/starter-sites.php:42
+msgid "One tasting menu, press quotes and private hire. Dark palette."
+msgstr ""
+
+#: inc/starter-sites.php:47
+msgid "Café"
+msgstr ""
+
+#: inc/starter-sites.php:48
+msgid "All-day coffee and cake, with gift cards and opening times."
+msgstr ""
+
+#: inc/starter-sites.php:53
+msgid "Pizzeria"
+msgstr ""
+
+#: inc/starter-sites.php:54
+msgid "Menu first, then delivery and collection."
+msgstr ""
+
+#: inc/starter-sites.php:59
+msgid "Bar"
+msgstr ""
+
+#: inc/starter-sites.php:60
+msgid "Drinks, events and late opening. Dark palette."
+msgstr ""
+
+#: inc/starter-sites.php:65
+msgid "Bakery"
+msgstr ""
+
+#: inc/starter-sites.php:66
+msgid "Counter menu, specials and gift cards."
+msgstr ""
+
+#: inc/starter-sites.php:83
+msgid "That starter does not exist."
+msgstr ""
+
+#: inc/starter-sites.php:89
+msgid "That starter’s pattern is not registered."
+msgstr ""
+
+#: inc/starter-sites.php:196
+#: inc/starter-sites.php:197
+#: inc/starter-sites.php:234
+msgid "Starter sites"
+msgstr ""
+
+#: inc/starter-sites.php:210
+msgid "You cannot do that."
+msgstr ""
+
+#: inc/starter-sites.php:226
+msgid "Imported, and set as the front page."
+msgstr ""
+
+#: inc/starter-sites.php:228
+msgid "View it"
+msgstr ""
+
+#: inc/starter-sites.php:236
+msgid "Each of these builds a front page you can then edit like any other page. Importing never changes or deletes a page you already have, so you can try more than one."
+msgstr ""
+
+#: inc/starter-sites.php:251
+msgid "Import this"
+msgstr ""
+
 #. translators: 1: the update host, 2: the list of values sent, 3: filter name.
 #: inc/updates.php:193
 #, php-format
 msgid "Pato checks %1$s for updates twice a day and sends %2$s. No personal data and no site name is sent, and the identifier is a one-way hash. Add the %3$s filter to switch it off."
+msgstr ""
+
+#: patterns/allergens.php
+msgctxt "Pattern title"
+msgid "Allergen note"
+msgstr ""
+
+#: patterns/allergens.php
+msgctxt "Pattern description"
+msgid "A short allergen statement for the foot of a menu page."
 msgstr ""
 
 #: patterns/blog-latest.php
@@ -219,6 +320,86 @@ msgctxt "Pattern description"
 msgid "Three chef portraits with names and roles."
 msgstr ""
 
+#: patterns/cta-book.php
+msgctxt "Pattern title"
+msgid "Booking call to action"
+msgstr ""
+
+#: patterns/cta-book.php
+msgctxt "Pattern description"
+msgid "A short booking prompt to close a page with."
+msgstr ""
+
+#: patterns/delivery.php
+msgctxt "Pattern title"
+msgid "Delivery and collection"
+msgstr ""
+
+#: patterns/delivery.php
+msgctxt "Pattern description"
+msgid "A takeaway and delivery call to action over a photograph."
+msgstr ""
+
+#: patterns/demo-bakery.php
+msgctxt "Pattern title"
+msgid "Starter: Bakery"
+msgstr ""
+
+#: patterns/demo-bakery.php
+msgctxt "Pattern description"
+msgid "A complete bakery home page."
+msgstr ""
+
+#: patterns/demo-bar.php
+msgctxt "Pattern title"
+msgid "Starter: Bar"
+msgstr ""
+
+#: patterns/demo-bar.php
+msgctxt "Pattern description"
+msgid "A complete bar home page."
+msgstr ""
+
+#: patterns/demo-bistro.php
+msgctxt "Pattern title"
+msgid "Starter: Bistro"
+msgstr ""
+
+#: patterns/demo-bistro.php
+msgctxt "Pattern description"
+msgid "A complete bistro home page."
+msgstr ""
+
+#: patterns/demo-cafe.php
+msgctxt "Pattern title"
+msgid "Starter: Café"
+msgstr ""
+
+#: patterns/demo-cafe.php
+msgctxt "Pattern description"
+msgid "A complete café home page."
+msgstr ""
+
+#: patterns/demo-fine-dining.php
+msgctxt "Pattern title"
+msgid "Starter: Fine dining"
+msgstr ""
+
+#: patterns/demo-fine-dining.php
+msgctxt "Pattern description"
+msgid "A complete fine dining home page."
+msgstr ""
+
+#: patterns/demo-pizzeria.php
+msgctxt "Pattern title"
+msgid "Starter: Pizzeria"
+msgstr ""
+
+#: patterns/demo-pizzeria.php
+msgctxt "Pattern description"
+msgid "A complete pizzeria home page."
+msgstr ""
+
 #: patterns/events.php
 msgctxt "Pattern title"
 msgid "Events banner"
@@ -227,6 +408,16 @@ msgstr ""
 #: patterns/events.php
 msgctxt "Pattern description"
 msgid "A full-width photograph with an event announcement."
+msgstr ""
+
+#: patterns/faq.php
+msgctxt "Pattern title"
+msgid "FAQ"
+msgstr ""
+
+#: patterns/faq.php
+msgctxt "Pattern description"
+msgid "Six questions in collapsible panels. No JavaScript."
 msgstr ""
 
 #: patterns/footer.php
@@ -244,9 +435,79 @@ msgctxt "Pattern description"
 msgid "Six photographs in two rows of three."
 msgstr ""
 
+#: patterns/gift-cards.php
+msgctxt "Pattern title"
+msgid "Gift cards"
+msgstr ""
+
+#: patterns/gift-cards.php
+msgctxt "Pattern description"
+msgid "A gift card offer beside a photograph."
+msgstr ""
+
 #: patterns/header.php
 msgctxt "Pattern title"
 msgid "Header"
+msgstr ""
+
+#: patterns/hero-bakery.php
+msgctxt "Pattern title"
+msgid "Hero: Bakery"
+msgstr ""
+
+#: patterns/hero-bakery.php
+msgctxt "Pattern description"
+msgid "The bakery starter's opening screen."
+msgstr ""
+
+#: patterns/hero-bar.php
+msgctxt "Pattern title"
+msgid "Hero: Bar"
+msgstr ""
+
+#: patterns/hero-bar.php
+msgctxt "Pattern description"
+msgid "The bar starter's opening screen."
+msgstr ""
+
+#: patterns/hero-bistro.php
+msgctxt "Pattern title"
+msgid "Hero: Bistro"
+msgstr ""
+
+#: patterns/hero-bistro.php
+msgctxt "Pattern description"
+msgid "The bistro starter's opening screen."
+msgstr ""
+
+#: patterns/hero-cafe.php
+msgctxt "Pattern title"
+msgid "Hero: Café"
+msgstr ""
+
+#: patterns/hero-cafe.php
+msgctxt "Pattern description"
+msgid "The café starter's opening screen."
+msgstr ""
+
+#: patterns/hero-fine-dining.php
+msgctxt "Pattern title"
+msgid "Hero: Fine dining"
+msgstr ""
+
+#: patterns/hero-fine-dining.php
+msgctxt "Pattern description"
+msgid "The fine dining starter's opening screen."
+msgstr ""
+
+#: patterns/hero-pizzeria.php
+msgctxt "Pattern title"
+msgid "Hero: Pizzeria"
+msgstr ""
+
+#: patterns/hero-pizzeria.php
+msgctxt "Pattern description"
+msgid "The pizzeria starter's opening screen."
 msgstr ""
 
 #: patterns/hero.php
@@ -322,6 +583,26 @@ msgstr ""
 #: patterns/hidden-search-banner.php
 msgctxt "Pattern title"
 msgid "Search banner"
+msgstr ""
+
+#: patterns/hours-banner.php
+msgctxt "Pattern title"
+msgid "Opening hours strip"
+msgstr ""
+
+#: patterns/hours-banner.php
+msgctxt "Pattern description"
+msgid "A four-column strip of opening times on the dark ground."
+msgstr ""
+
+#: patterns/map.php
+msgctxt "Pattern title"
+msgid "Map"
+msgstr ""
+
+#: patterns/map.php
+msgctxt "Pattern description"
+msgid "A keyless OpenStreetMap embed. No API key and no consent banner."
 msgstr ""
 
 #: patterns/menu-course.php
@@ -434,6 +715,26 @@ msgctxt "Pattern description"
 msgid "A booking page with the form and opening times."
 msgstr ""
 
+#: patterns/press.php
+msgctxt "Pattern title"
+msgid "Press quotes"
+msgstr ""
+
+#: patterns/press.php
+msgctxt "Pattern description"
+msgid "Three press quotes with the publication named."
+msgstr ""
+
+#: patterns/private-dining.php
+msgctxt "Pattern title"
+msgid "Private dining"
+msgstr ""
+
+#: patterns/private-dining.php
+msgctxt "Pattern description"
+msgid "Private hire, with the room's capacity and what is included."
+msgstr ""
+
 #: patterns/reservation.php
 msgctxt "Pattern title"
 msgid "Reservation form"
@@ -454,9 +755,89 @@ msgctxt "Pattern description"
 msgid "Three guest reviews as cards."
 msgstr ""
 
+#: patterns/set-menu.php
+msgctxt "Pattern title"
+msgid "Set menu for groups"
+msgstr ""
+
+#: patterns/set-menu.php
+msgctxt "Pattern description"
+msgid "A three-course set menu with a price and a call to action."
+msgstr ""
+
 #: patterns/sidebar.php
 msgctxt "Pattern title"
 msgid "Sidebar"
+msgstr ""
+
+#: patterns/specials.php
+msgctxt "Pattern title"
+msgid "Weekly specials"
+msgstr ""
+
+#: patterns/specials.php
+msgctxt "Pattern description"
+msgid "Four weekly offers as cards."
+msgstr ""
+
+#: patterns/welcome-bakery.php
+msgctxt "Pattern title"
+msgid "Welcome: Bakery"
+msgstr ""
+
+#: patterns/welcome-bakery.php
+msgctxt "Pattern description"
+msgid "The bakery starter's introduction."
+msgstr ""
+
+#: patterns/welcome-bar.php
+msgctxt "Pattern title"
+msgid "Welcome: Bar"
+msgstr ""
+
+#: patterns/welcome-bar.php
+msgctxt "Pattern description"
+msgid "The bar starter's introduction."
+msgstr ""
+
+#: patterns/welcome-bistro.php
+msgctxt "Pattern title"
+msgid "Welcome: Bistro"
+msgstr ""
+
+#: patterns/welcome-bistro.php
+msgctxt "Pattern description"
+msgid "The bistro starter's introduction."
+msgstr ""
+
+#: patterns/welcome-cafe.php
+msgctxt "Pattern title"
+msgid "Welcome: Café"
+msgstr ""
+
+#: patterns/welcome-cafe.php
+msgctxt "Pattern description"
+msgid "The café starter's introduction."
+msgstr ""
+
+#: patterns/welcome-fine-dining.php
+msgctxt "Pattern title"
+msgid "Welcome: Fine dining"
+msgstr ""
+
+#: patterns/welcome-fine-dining.php
+msgctxt "Pattern description"
+msgid "The fine dining starter's introduction."
+msgstr ""
+
+#: patterns/welcome-pizzeria.php
+msgctxt "Pattern title"
+msgid "Welcome: Pizzeria"
+msgstr ""
+
+#: patterns/welcome-pizzeria.php
+msgctxt "Pattern description"
+msgid "The pizzeria starter's introduction."
 msgstr ""
 
 #: patterns/welcome.php
@@ -600,6 +981,19 @@ msgid "Divider"
 msgstr ""
 
 #: theme.json
+#: styles/colors/colors-1-ember.json
+#: styles/colors/colors-2-olive.json
+#: styles/colors/colors-3-vineyard.json
+#: styles/colors/colors-4-charcoal.json
+#: styles/colors/colors-5-harvest.json
+#: styles/colors/colors-6-midnight.json
+#: styles/colors/colors-7-cellar.json
+#: styles/colors/colors-8-seaside.json
+msgctxt "Color name"
+msgid "Overlay"
+msgstr ""
+
+#: theme.json
 msgctxt "Gradient name"
 msgid "Ember"
 msgstr ""
@@ -617,6 +1011,8 @@ msgstr ""
 #: theme.json
 #: styles/typography/type-1-montserrat.json
 #: styles/typography/type-3-classic.json
+#: styles/typography/type-4-editorial.json
+#: styles/typography/type-5-plain.json
 msgctxt "Font family name"
 msgid "Montserrat"
 msgstr ""
@@ -624,6 +1020,8 @@ msgstr ""
 #: theme.json
 #: styles/typography/type-1-montserrat.json
 #: styles/typography/type-2-poppins.json
+#: styles/typography/type-4-editorial.json
+#: styles/typography/type-5-plain.json
 msgctxt "Font family name"
 msgid "Poppins"
 msgstr ""
@@ -632,6 +1030,7 @@ msgstr ""
 #: styles/typography/type-1-montserrat.json
 #: styles/typography/type-2-poppins.json
 #: styles/typography/type-3-classic.json
+#: styles/typography/type-4-editorial.json
 msgctxt "Font family name"
 msgid "Courgette"
 msgstr ""
@@ -640,6 +1039,8 @@ msgstr ""
 #: styles/typography/type-1-montserrat.json
 #: styles/typography/type-2-poppins.json
 #: styles/typography/type-3-classic.json
+#: styles/typography/type-4-editorial.json
+#: styles/typography/type-5-plain.json
 msgctxt "Font family name"
 msgid "System"
 msgstr ""
@@ -827,4 +1228,14 @@ msgstr ""
 #: styles/typography/type-3-classic.json
 msgctxt "Style variation name"
 msgid "Montserrat throughout"
+msgstr ""
+
+#: styles/typography/type-4-editorial.json
+msgctxt "Style variation name"
+msgid "Poppins headings"
+msgstr ""
+
+#: styles/typography/type-5-plain.json
+msgctxt "Style variation name"
+msgid "No script"
 msgstr ""

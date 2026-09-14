@@ -4,9 +4,9 @@ Guidance for Claude Code working in this repository.
 
 ## What this is
 
-**Pato 1.0.0**, a Colorlib **WordPress block theme** (full site editing) for
-restaurants. 35 patterns, 14 templates, 8 colour palettes × 3 type pairings,
-text domain `pato`. It is **not** a static HTML template — the Colorlib R2
+**Pato 1.1.0**, a Colorlib **WordPress block theme** (full site editing) for
+restaurants. 64 patterns, 14 templates, 8 colour palettes × 5 type pairings,
+6 starter sites, dark mode, WooCommerce support, text domain `pato`. It is **not** a static HTML template — the Colorlib R2
 preview/download flow and the HTML-template upgrade phases in the global
 instructions do not apply here.
 
@@ -59,6 +59,9 @@ is correct: it refuses any site that already has more than one page.
 | Every pattern | `.dev/build_patterns.py` + `.dev/patternlib.py` → `patterns/*.php` |
 | Block markup helpers | `.dev/patternlib.py` |
 | Reservation form, validation, filters | `inc/reservations.php` |
+| Six starter sites + the import screen | `inc/starter-sites.php` |
+| Visitor dark mode | `inc/scheme.php` + `assets/css/scheme.css` + `assets/js/scheme-toggle.js` |
+| WooCommerce | `inc/woocommerce.php` + `assets/css/woocommerce.css` |
 | Form-plugin styling (8 recognised) | `inc/forms.php` + `assets/css/forms.css` |
 | Starter pages on activation | `inc/front-page-setup.php` |
 | Self-hosted updates + install counting | `inc/updates.php` |
@@ -110,6 +113,25 @@ is correct: it refuses any site that already has more than one page.
   cover block carries the same `get_theme_file_uri()` call twice, in the
   comment and in the `<img>`; two different tokens make them disagree and every
   cover parses as invalid. That was a bug in the tooling, not the theme.
+
+## More traps, from the 1.1.0 work
+
+- **`base` is the page background, not white.** Text on a dark ground or a
+  photograph must use `overlay`. Using `base` made every cover headline and the
+  entire footer black-on-black in the two dark palettes.
+- **`wp_update_post()` unslashes.** Writing JSON to a post without `wp_slash()`
+  eats the backslashes and the content stops parsing — silently.
+- **An empty `core/button` renders nothing.** Give icon-only buttons a
+  screen-reader label rather than empty text.
+- **Cover `dimRatio` must round to the nearest ten in the CLASS** (core's
+  `dimRatioToClass`), while the attribute keeps the exact value.
+- **Patterns stored in post content must be expanded recursively**, or the
+  editor shows one opaque block per section.
+- Woo on a block theme renders **blocks**, not `ul.products`. Style both.
+- Run `.dev/contrast-rendered.mjs` in light *and* dark (`PATO_DARK=1`) after
+  any colour change. It parses `color(srgb ...)` as well as `rgb()`, because
+  `color-mix()` returns the former and reading it as 0-255 reports everything
+  at about 1.16:1.
 
 ## Theme Check: 3 expected REQUIRED findings
 

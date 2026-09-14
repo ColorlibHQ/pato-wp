@@ -191,6 +191,11 @@ TYPE_SETS = {
     "type-1-montserrat": ("Montserrat & Poppins", "montserrat", "poppins", "courgette"),
     "type-2-poppins": ("Poppins throughout", "poppins", "poppins", "courgette"),
     "type-3-classic": ("Montserrat throughout", "montserrat", "montserrat", "courgette"),
+    "type-4-editorial": ("Poppins headings", "poppins", "montserrat", "courgette"),
+    # The script face carries the eyebrows, so swapping it to the body sans
+    # gives a plainer, more modern room -- a bistro and a bakery do not want
+    # the same amount of flourish.
+    "type-5-plain": ("No script", "montserrat", "poppins", "montserrat"),
 }
 
 
@@ -465,6 +470,9 @@ def build_color_variation(slug, name, colors):
     return variation
 
 
+NAMED = {"montserrat": "Montserrat", "poppins": "Poppins", "courgette": "Courgette"}
+
+
 def build_type_variation(slug, name, heading, body, script):
     return od(
         ("$schema", SCHEMA),
@@ -472,9 +480,9 @@ def build_type_variation(slug, name, heading, body, script):
         ("title", name),
         ("slug", slug),
         ("settings", od(("typography", od(("fontFamilies", [
-            family("heading", {"montserrat": "Montserrat", "poppins": "Poppins"}[heading]),
-            family("body", {"montserrat": "Montserrat", "poppins": "Poppins"}[body]),
-            family("script", "Courgette"),
+            family("heading", NAMED[heading]),
+            family("body", NAMED[body]),
+            family("script", NAMED[script]),
             SYSTEM_FAMILY,
         ]))))),
     )

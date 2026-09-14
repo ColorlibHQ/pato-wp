@@ -1,6 +1,6 @@
 # Pato — WordPress block theme
 
-**Version 1.0.0** · WordPress 6.6+ · PHP 7.4+ · no build step
+**Version 1.1.0** · WordPress 6.6+ · PHP 7.4+ · no build step
 
 A full-site-editing theme for restaurants, bistros, cafés and bars. Built from
 the [Pato HTML template](https://preview.colorlib.com/theme/pato/).
@@ -9,10 +9,10 @@ the [Pato HTML template](https://preview.colorlib.com/theme/pato/).
 
 ```
 theme.json            generated — edit .dev/build_theme.py
-styles/               8 colour palettes, 3 type pairings, 4 section styles
+styles/               8 colour palettes, 5 type pairings, 4 section styles
 templates/  parts/    14 templates, 3 parts
-patterns/             35 patterns — generated, edit .dev/build_patterns.py
-inc/                  reservations, form styling, starter pages, updates
+patterns/             64 patterns — generated, edit .dev/build_patterns.py
+inc/                  reservations, starters, dark mode, Woo, forms, updates
 assets/               fonts, images, forms.css
 style.css             block style variations and what theme.json cannot say
 .dev/                 the generators and the checks
@@ -34,6 +34,11 @@ PATO_PATTERNS="$PWD/patterns" WP_URL=http://local-wp.local \
 # Assert every block in every template, part and pattern is valid
 WP_URL=http://local-wp.local WP_USER=admin WP_PASS=secret \
   node .dev/validate-blocks.mjs
+
+# Measure contrast on a RENDERED page, light and dark. Run after any colour
+# change: the palette maths cannot catch the wrong slug on the wrong ground.
+PATO_URL=/starter-bistro/ node .dev/contrast-rendered.mjs
+PATO_DARK=1 PATO_URL=/starter-bistro/ node .dev/contrast-rendered.mjs
 
 # Rebuild the webfonts
 node .dev/build-fonts.mjs
