@@ -1,6 +1,6 @@
 # Pato — WordPress block theme
 
-**Version 1.1.0** · WordPress 6.6+ · PHP 7.4+ · no build step
+**Version 1.0.0** · WordPress 6.6+ · PHP 7.4+ · no build step
 
 A full-site-editing theme for restaurants, bistros, cafés and bars. Built from
 the [Pato HTML template](https://preview.colorlib.com/theme/pato/).

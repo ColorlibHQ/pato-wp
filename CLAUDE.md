@@ -4,7 +4,7 @@ Guidance for Claude Code working in this repository.
 
 ## What this is
 
-**Pato 1.1.0**, a Colorlib **WordPress block theme** (full site editing) for
+**Pato 1.0.0**, a Colorlib **WordPress block theme** (full site editing) for
 restaurants. 64 patterns, 14 templates, 8 colour palettes × 5 type pairings,
 6 starter sites, dark mode, WooCommerce support, text domain `pato`. It is **not** a static HTML template — the Colorlib R2
 preview/download flow and the HTML-template upgrade phases in the global
