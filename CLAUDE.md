@@ -128,6 +128,15 @@ is correct: it refuses any site that already has more than one page.
 - **Patterns stored in post content must be expanded recursively**, or the
   editor shows one opaque block per section.
 - Woo on a block theme renders **blocks**, not `ul.products`. Style both.
+- **Form controls need `box-sizing: border-box` spelled out.** Neither
+  WordPress nor this theme resets it for inputs, so `width: 100%` plus padding
+  overflows by exactly the padding and border. It put every reservation field
+  34px outside its grid cell.
+- **Document-level overflow checks miss most overflow.** `scrollWidth >
+  innerWidth` only catches a horizontally scrollable page; something spilling
+  out of a panel in the middle of the page leaves the document the same width
+  as the viewport. Use `.dev/overflow-check.mjs`, which compares each element
+  against its parent's content box.
 - Run `.dev/contrast-rendered.mjs` in light *and* dark (`PATO_DARK=1`) after
   any colour change. It parses `color(srgb ...)` as well as `rgb()`, because
   `color-mix()` returns the former and reading it as 0-255 reports everything

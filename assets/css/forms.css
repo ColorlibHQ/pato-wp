@@ -45,6 +45,13 @@
 .nf-form-content input[type="email"],
 .nf-form-content textarea {
 	width: 100%;
+	/* Without this every control is 34px wider than the cell it sits in.
+	   `width: 100%` plus 2rem of horizontal padding and a 1px border adds up
+	   to 100% + 34px on a content-box, so the right-hand column of the
+	   reservation grid pushed out past the panel it lives in. Form controls do
+	   not inherit a border-box reset from WordPress or from the theme, so they
+	   have to be told. */
+	box-sizing: border-box;
 	padding: 0.85rem 1rem;
 	font-family: inherit;
 	font-size: var(--wp--preset--font-size--medium);
@@ -263,6 +270,7 @@ textarea.pato-field__control {
    --------------------------------------------------------------------------- */
 
 .wp-block-search__input {
+	box-sizing: border-box;
 	padding: 0.85rem 1rem;
 	border: 1px solid var(--wp--preset--color--divider);
 	border-radius: 4px;
@@ -275,6 +283,7 @@ textarea.pato-field__control {
 .wp-block-post-comments-form input[type="url"],
 .wp-block-post-comments-form textarea {
 	width: 100%;
+	box-sizing: border-box;
 	padding: 0.85rem 1rem;
 	font-family: inherit;
 	font-size: var(--wp--preset--font-size--medium);

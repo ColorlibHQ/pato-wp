@@ -40,6 +40,11 @@ WP_URL=http://local-wp.local WP_USER=admin WP_PASS=secret \
 PATO_URL=/starter-bistro/ node .dev/contrast-rendered.mjs
 PATO_DARK=1 PATO_URL=/starter-bistro/ node .dev/contrast-rendered.mjs
 
+# Find elements spilling out of their container. A document-level overflow
+# check does NOT catch this: a form 34px wider than its cell in a panel in the
+# middle of the page leaves the document exactly as wide as the viewport.
+WP_URL=https://example.com PATO_PATHS=/,/contact/ node .dev/overflow-check.mjs
+
 # Rebuild the webfonts
 node .dev/build-fonts.mjs
 
