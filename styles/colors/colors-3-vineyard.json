@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Vineyard",
+	"slug": "colors-3-vineyard",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Base",
+					"slug": "base",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Surface",
+					"slug": "surface",
+					"color": "#faf5f7"
+				},
+				{
+					"name": "Contrast",
+					"slug": "contrast",
+					"color": "#1d1016"
+				},
+				{
+					"name": "Muted",
+					"slug": "muted",
+					"color": "#615059"
+				},
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#8e1d45"
+				},
+				{
+					"name": "Primary deep",
+					"slug": "primary-deep",
+					"color": "#6d1434"
+				},
+				{
+					"name": "Flame",
+					"slug": "flame",
+					"color": "#b32657"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "#b8863b"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#180d12"
+				},
+				{
+					"name": "Divider",
+					"slug": "divider",
+					"color": "#e6d5dd"
+				}
+			]
+		}
+	}
+}

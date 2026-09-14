@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Seaside",
+	"slug": "colors-8-seaside",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Base",
+					"slug": "base",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Surface",
+					"slug": "surface",
+					"color": "#f2f8f9"
+				},
+				{
+					"name": "Contrast",
+					"slug": "contrast",
+					"color": "#0e1b20"
+				},
+				{
+					"name": "Muted",
+					"slug": "muted",
+					"color": "#4c5f65"
+				},
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#0d6b7d"
+				},
+				{
+					"name": "Primary deep",
+					"slug": "primary-deep",
+					"color": "#084e5c"
+				},
+				{
+					"name": "Flame",
+					"slug": "flame",
+					"color": "#149bb4"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "#b8863b"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#0a161a"
+				},
+				{
+					"name": "Divider",
+					"slug": "divider",
+					"color": "#cfe0e4"
+				}
+			]
+		}
+	}
+}

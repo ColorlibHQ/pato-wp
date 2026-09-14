@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Dark ground",
+	"slug": "section-dark",
+	"blockTypes": [
+		"core/group",
+		"core/columns",
+		"core/column",
+		"core/cover",
+		"core/media-text"
+	],
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--dark)",
+			"text": "var(--wp--preset--color--base)"
+		},
+		"elements": {
+			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--base)"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--base)"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--base)"
+					}
+				}
+			}
+		}
+	}
+}

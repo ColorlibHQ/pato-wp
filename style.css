@@ -1,0 +1,554 @@
+/*
+Theme Name: Pato
+Theme URI: https://colorlib.com/wp/themes/pato/
+Author: Colorlib
+Author URI: https://colorlib.com/
+Description: A block theme for restaurants, bistros, cafés and bars. Ships lunch and dinner menu layouts with prices, a reservation panel, opening hours, chef profiles, events, a filterable gallery and review carousels — eight colour palettes, three type pairings and full-site editing throughout. Works with any form plugin, or on its own.
+Requires at least: 6.6
+Tested up to: 7.0
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Update URI: https://updates.colorlib.com/theme/pato.json
+Text Domain: pato
+Tags: food-and-drink, blog, full-site-editing, block-patterns, block-styles, template-editing, wide-blocks, accessibility-ready, translation-ready, custom-colors, custom-menu, custom-logo, featured-images, threaded-comments, one-column, two-columns, right-sidebar, rtl-language-support, sticky-post, theme-options
+
+Pato WordPress Theme, (C) 2026 Colorlib.
+Pato is distributed under the terms of the GNU GPL v2 or later.
+
+Pato bundles the following third-party resources:
+
+Montserrat, Poppins and Courgette
+  Licence: SIL Open Font License 1.1
+  Source: https://fonts.google.com/
+  Each family's licence is at assets/fonts/<family>/OFL.txt
+
+Photographs in assets/images/
+  Licence: Unsplash License (https://unsplash.com/license)
+  Source: https://unsplash.com/
+  These are the photographs the Pato HTML template ships, credited by Colorlib
+  to Unsplash. The Unsplash License permits commercial use and redistribution
+  but is not the GPL, which is why Theme Check reports them -- see the note in
+  readme.txt. Replacing them with your own is a matter of dropping new files
+  into assets/images/ under the same names.
+*/
+
+/*
+ * This file carries only what theme.json cannot express.
+ *
+ * That means: block style variations (which must live here -- see below),
+ * pseudo-elements, container queries, and the handful of layout rules that
+ * have no theme.json equivalent. Everything about colour, type, spacing and
+ * block defaults belongs in .dev/build_theme.py, which generates theme.json.
+ *
+ * Block style variations registered with register_block_style() are
+ * deliberately NOT given a `style_handle`. That option only enqueues while
+ * WordPress is serving separate core block assets, and any plugin can switch
+ * that off site-wide -- at which point every variation keeps rendering its
+ * class and silently loses its CSS. style.css always loads.
+ */
+
+/* ---------------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------------- */
+
+/*
+ * Skip link. WordPress prints one in every block theme, and its default
+ * styling puts it on screen in some themes and off-screen forever in others.
+ */
+.skip-link.screen-reader-text {
+	background-color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--primary);
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	padding: 15px 23px 14px;
+	position: absolute;
+	left: -9999rem;
+	top: 2.5rem;
+	z-index: 100000;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.skip-link.screen-reader-text:focus {
+	left: 6px;
+	top: 7px;
+}
+
+/*
+ * Focus. Several of the patterns place links on photographs, where the
+ * browser's default ring can disappear entirely.
+ */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--wp--preset--color--primary);
+	outline-offset: 2px;
+}
+
+/* Images never overflow their column, whatever the editor sets. */
+img,
+picture,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+ * An image given an aspect ratio fills its column.
+ *
+ * Without this it is only ever as wide as the file: a gallery row of three
+ * equal columns rendered two full-width tiles and one narrow one, because the
+ * third photograph happened to be smaller than the column. object-fit then has
+ * nothing to crop and the row stops being a grid.
+ */
+.wp-block-image img[style*="aspect-ratio"] {
+	width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   Block style variations
+   --------------------------------------------------------------------------- */
+
+/* Buttons -------------------------------------------------------------- */
+
+.wp-block-button.is-style-pato-outline > .wp-block-button__link {
+	background-color: transparent;
+	border: 2px solid currentColor;
+	color: var(--wp--preset--color--primary);
+}
+
+.wp-block-button.is-style-pato-outline > .wp-block-button__link:hover,
+.wp-block-button.is-style-pato-outline > .wp-block-button__link:focus {
+	background-color: var(--wp--preset--color--primary);
+	border-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+}
+
+/*
+ * On a dark ground the outline button has to take its colour from the section,
+ * not from the palette's primary, or it disappears into the photograph.
+ */
+.has-dark-background-color .wp-block-button.is-style-pato-outline > .wp-block-button__link,
+.wp-block-cover .wp-block-button.is-style-pato-outline > .wp-block-button__link {
+	color: var(--wp--preset--color--base);
+}
+
+.wp-block-button.is-style-pato-ghost > .wp-block-button__link {
+	background-color: transparent;
+	color: currentColor;
+	padding-left: 0;
+	padding-right: 0;
+	border-bottom: 2px solid currentColor;
+	border-radius: 0;
+}
+
+/* Headings ------------------------------------------------------------- */
+
+/*
+ * The script eyebrow above a section title -- the "Our Menu" / "Welcome"
+ * line the HTML template sets in Courgette. It is a style variation rather
+ * than a pattern-level font setting so it follows the typography variations.
+ */
+.is-style-pato-script {
+	font-family: var(--wp--preset--font-family--script);
+	font-weight: 400;
+	letter-spacing: 0;
+	text-transform: none;
+	color: var(--wp--preset--color--primary);
+	line-height: 1.4;
+}
+
+/*
+ * A title with a short rule beneath it, centred. ::after rather than a
+ * separator block so the two move together and the pattern stays one block.
+ */
+.is-style-pato-ruled {
+	position: relative;
+	padding-bottom: 0.6em;
+}
+
+.is-style-pato-ruled::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 64px;
+	height: 2px;
+	background-color: var(--wp--preset--color--primary);
+}
+
+.is-style-pato-ruled.has-text-align-center::after {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.is-style-pato-ruled.has-text-align-right::after {
+	left: auto;
+	right: 0;
+}
+
+/* Images --------------------------------------------------------------- */
+
+.wp-block-image.is-style-pato-frame img {
+	border: 1px solid var(--wp--preset--color--divider);
+	outline: 1px solid var(--wp--preset--color--base);
+	outline-offset: -10px;
+}
+
+/*
+ * Photographs that lift on hover. The transform is behind a media query so it
+ * does not fire for anyone who has asked for less motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+	.wp-block-image.is-style-pato-lift img {
+		transition: transform 0.45s ease, filter 0.45s ease;
+	}
+
+	.wp-block-image.is-style-pato-lift:hover img {
+		transform: scale(1.04);
+	}
+}
+
+.wp-block-image.is-style-pato-lift {
+	overflow: hidden;
+}
+
+/* Separators ----------------------------------------------------------- */
+
+/*
+ * A separator with a diamond at its centre, for between menu courses. The
+ * rule is drawn on the element and the diamond on ::before, so it needs no
+ * extra markup and survives the editor's own separator styles.
+ */
+.wp-block-separator.is-style-pato-diamond {
+	border: 0;
+	height: 1px;
+	background-color: var(--wp--preset--color--divider);
+	overflow: visible;
+	opacity: 1;
+	max-width: 260px;
+}
+
+.wp-block-separator.is-style-pato-diamond::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: 9px;
+	height: 9px;
+	margin-top: -4px;
+	transform: translateX(-50%) rotate(45deg);
+	background-color: var(--wp--preset--color--primary);
+}
+
+/* Lists ---------------------------------------------------------------- */
+
+.wp-block-list.is-style-pato-ticks {
+	list-style: none;
+	padding-left: 0;
+}
+
+.wp-block-list.is-style-pato-ticks > li {
+	position: relative;
+	padding-left: 1.9em;
+	margin-bottom: 0.6em;
+}
+
+.wp-block-list.is-style-pato-ticks > li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.45em;
+	width: 0.75em;
+	height: 0.4em;
+	border-left: 2px solid var(--wp--preset--color--primary);
+	border-bottom: 2px solid var(--wp--preset--color--primary);
+	transform: rotate(-45deg);
+}
+
+/* ---------------------------------------------------------------------------
+   Menu items
+   ---------------------------------------------------------------------------
+   The one layout a restaurant theme has to get right: dish, leader, price.
+
+   This is built from core blocks -- a group holding two paragraphs -- rather
+   than a custom block, so the copy stays editable by anyone and the theme
+   needs no JavaScript and no post type. The leader is a repeating gradient on
+   the flex gap, which means it stretches to whatever is left and never wraps
+   or overflows the way a row of typed dots does.
+*/
+
+.pato-dish {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+	width: 100%;
+}
+
+.pato-dish > .pato-dish__name {
+	flex: 0 1 auto;
+	margin: 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-weight: 700;
+}
+
+/*
+ * The leader: an empty flex child that eats whatever width is left.
+ *
+ * `order` is doing real work here. A ::after is the last child in source
+ * order, so without it the row renders name, price, leader -- the price sits
+ * hard against the name and the dots trail off to the right of it. Ordering
+ * the price after the leader puts it back on the right margin where a price
+ * belongs.
+ */
+.pato-dish > .pato-dish__name {
+	order: 1;
+}
+
+.pato-dish::after,
+.pato-dish > .pato-dish__leader {
+	content: "";
+	order: 2;
+	flex: 1 1 auto;
+	align-self: flex-end;
+	min-width: 1.5rem;
+	margin-bottom: 0.28em;
+	height: 1px;
+	background-image: linear-gradient(to right, var(--wp--preset--color--divider) 0 2px, transparent 2px 6px);
+	background-repeat: repeat-x;
+	background-size: 6px 1px;
+}
+
+/* When the pattern supplies its own leader element, drop the generated one. */
+.pato-dish:has(> .pato-dish__leader)::after {
+	content: none;
+}
+
+.pato-dish > .pato-dish__price {
+	order: 3;
+	flex: 0 0 auto;
+	margin: 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-weight: 700;
+	color: var(--wp--preset--color--primary);
+	white-space: nowrap;
+}
+
+/* A dish's description sits under the row, not in it. */
+.pato-dish__note {
+	margin: 0.25rem 0 0;
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.6;
+}
+
+/*
+ * Narrow columns: keep the price on the same line as the name, because a
+ * price that wraps onto its own line stops reading as a price. Below 340px
+ * the leader is what gives way.
+ */
+@media (max-width: 380px) {
+	.pato-dish::after,
+	.pato-dish > .pato-dish__leader {
+		min-width: 0.75rem;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+   Opening hours
+   --------------------------------------------------------------------------- */
+
+.pato-hours {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.55rem 1.5rem;
+	margin: 0;
+}
+
+.pato-hours dt {
+	font-weight: 400;
+}
+
+.pato-hours dd {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-weight: 700;
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+   Post meta
+   --------------------------------------------------------------------------- */
+
+/*
+ * Post date, author and terms on one line with a bullet between. The bullet is
+ * a ::after on each item but the last, so the row survives any of the three
+ * being empty -- an author-less or term-less post must not render a stray dot.
+ */
+.pato-meta {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--small);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--muted);
+}
+
+.pato-meta .wp-block-post-date,
+.pato-meta .wp-block-post-author-name,
+.pato-meta .wp-block-post-terms {
+	position: relative;
+}
+
+.pato-meta > :not(:last-child)::after {
+	content: "\2022";
+	margin: 0 0.6em;
+	color: var(--wp--preset--color--divider);
+}
+
+.pato-meta a {
+	color: inherit;
+}
+
+.pato-meta a:hover {
+	color: var(--wp--preset--color--primary);
+}
+
+/* ---------------------------------------------------------------------------
+   Covers and heroes
+   --------------------------------------------------------------------------- */
+
+/*
+ * Page banners set their own minimum height rather than inheriting one, so a
+ * banner on a phone is not the same 70vh as on a desktop.
+ */
+.pato-banner {
+	min-height: 320px;
+}
+
+@media (min-width: 782px) {
+	.pato-banner {
+		min-height: 420px;
+	}
+}
+
+/*
+ * Cover blocks inside a constrained group: the editor writes `alignfull` on
+ * the cover but the inner container still needs the root padding, which it
+ * only gets when the layout is constrained. Patterns do this; the rule here
+ * is the safety net for a cover a user adds by hand.
+ */
+.wp-block-cover.pato-banner > .wp-block-cover__inner-container {
+	width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   Pagination
+   --------------------------------------------------------------------------- */
+
+.wp-block-query-pagination {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+.wp-block-query-pagination-numbers .page-numbers,
+.wp-block-query-pagination-previous,
+.wp-block-query-pagination-next {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 42px;
+	height: 42px;
+	padding: 0 0.75rem;
+	border: 1px solid var(--wp--preset--color--divider);
+	color: var(--wp--preset--color--contrast);
+	text-decoration: none;
+}
+
+.wp-block-query-pagination-numbers .page-numbers:hover,
+.wp-block-query-pagination-previous:hover,
+.wp-block-query-pagination-next:hover {
+	border-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--primary);
+	text-decoration: none;
+}
+
+.wp-block-query-pagination-numbers .page-numbers.current {
+	background-color: var(--wp--preset--color--primary);
+	border-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+}
+
+/* ---------------------------------------------------------------------------
+   Navigation
+   --------------------------------------------------------------------------- */
+
+/*
+ * Core's own rule is `.wp-block-navigation :where(a)`, two classes' worth of
+ * specificity, so a single-class selector here would lose. Naming the element
+ * class is what wins.
+ */
+.pato-nav a.wp-block-navigation-item__content {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.pato-nav .current-menu-item > a.wp-block-navigation-item__content,
+.pato-nav .current_page_item > a.wp-block-navigation-item__content,
+.pato-nav .current-menu-ancestor > a.wp-block-navigation-item__content {
+	color: var(--wp--preset--color--primary);
+}
+
+/* ---------------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------------- */
+
+.pato-footer__title {
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 1.25rem;
+}
+
+/*
+ * The footer sits on `dark`, where the theme.json link colour would be
+ * unreadable. Section variations cannot reach list markup, so it is set here.
+ */
+.pato-footer .wp-block-list,
+.pato-footer .wp-block-page-list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+.pato-footer .wp-block-list li,
+.pato-footer .wp-block-page-list li {
+	margin-bottom: 0.7em;
+}
+
+/*
+ * Links on the dark footer.
+ *
+ * theme.json sets links to `primary`, which is a deep red chosen to read on a
+ * white page -- against the footer's near-black it measures under 2:1 and the
+ * whole column is effectively unreadable. On this ground the links take the
+ * footer's own text colour and use the underline to say they are links.
+ */
+.pato-footer a:where(:not(.wp-element-button)) {
+	color: inherit;
+	text-decoration: none;
+}
+
+.pato-footer a:where(:not(.wp-element-button)):hover,
+.pato-footer a:where(:not(.wp-element-button)):focus {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.25em;
+}

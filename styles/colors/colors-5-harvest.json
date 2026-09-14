@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Harvest",
+	"slug": "colors-5-harvest",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"name": "Base",
+					"slug": "base",
+					"color": "#ffffff"
+				},
+				{
+					"name": "Surface",
+					"slug": "surface",
+					"color": "#fdf8f0"
+				},
+				{
+					"name": "Contrast",
+					"slug": "contrast",
+					"color": "#1f1708"
+				},
+				{
+					"name": "Muted",
+					"slug": "muted",
+					"color": "#645a45"
+				},
+				{
+					"name": "Primary",
+					"slug": "primary",
+					"color": "#9a5b12"
+				},
+				{
+					"name": "Primary deep",
+					"slug": "primary-deep",
+					"color": "#77450b"
+				},
+				{
+					"name": "Flame",
+					"slug": "flame",
+					"color": "#c9791d"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "#4d6b1f"
+				},
+				{
+					"name": "Dark",
+					"slug": "dark",
+					"color": "#1a1409"
+				},
+				{
+					"name": "Divider",
+					"slug": "divider",
+					"color": "#eadfcb"
+				}
+			]
+		}
+	}
+}
