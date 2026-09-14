@@ -14,20 +14,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"},"anchor":"about"} -->
 <div class="wp-block-group alignfull" id="about" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|60","left":"var:preset|spacing|60"}}}} -->
-<div class="wp-block-columns alignwide are-vertically-aligned-center"><!-- wp:column {"width":"46%"} -->
-<div class="wp-block-column" style="flex-basis:46%"><!-- wp:image {"aspectRatio":"4/5","scale":"cover","sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/story-salmon.avif' ) ); ?>" alt="A grilled salmon fillet on a salad of tomato and rocket" style="border-radius:6px;aspect-ratio:4/5;object-fit:cover"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"verticalAlignment":"center","width":"54%"} -->
+<div class="wp-block-columns alignwide are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"54%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:54%"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script","style":{"typography":{"textAlign":"left"}},"fontSize":"x-large"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-pato-script has-x-large-font-size">Welcome</h3>
+<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script pato-section__script","style":{"typography":{"textAlign":"left"}}} -->
+<h3 class="wp-block-heading has-text-align-left is-style-pato-script pato-section__script">Since 1998</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"fontSize":"heading"} -->
-<h2 class="wp-block-heading has-heading-font-size">Cooked over fire, eaten slowly</h2>
+<!-- wp:heading {"className":"pato-section__title"} -->
+<h2 class="wp-block-heading pato-section__title">Welcome</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -48,6 +42,12 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"46%"} -->
+<div class="wp-block-column" style="flex-basis:46%"><!-- wp:image {"aspectRatio":"4/5","scale":"cover","sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"6px"}}} -->
+<figure class="wp-block-image size-large has-custom-border"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/story-salmon.avif' ) ); ?>" alt="A grilled salmon fillet on a salad of tomato and rocket" style="border-radius:6px;aspect-ratio:4/5;object-fit:cover"/></figure>
+<!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
 <!-- /wp:group -->

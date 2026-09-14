@@ -15,12 +15,12 @@ defined( 'ABSPATH' ) || exit;
 <!-- wp:group {"align":"full","layout":{"type":"default"},"anchor":"order"} -->
 <div class="wp-block-group alignfull" id="order"><!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/post-pizza.avif' ) ); ?>","dimRatio":70,"overlayColor":"dark","isUserOverlayColor":true,"minHeight":420,"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-cover alignfull" style="min-height:420px"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/post-pizza.avif' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-dark-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"720px"}} -->
-<div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"heading"} -->
-<h2 class="wp-block-heading has-text-align-center has-overlay-color has-text-color has-heading-font-size">Not coming in tonight?</h2>
+<div class="wp-block-group"><!-- wp:heading {"className":"pato-section__title","style":{"typography":{"textAlign":"center"}},"textColor":"overlay"} -->
+<h2 class="wp-block-heading has-text-align-center pato-section__title has-overlay-color has-text-color">Takeaway</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"large"} -->
-<p class="has-text-align-center has-overlay-color has-text-color has-large-font-size">The whole menu travels, except the things that should not. Order direct and we keep the fee instead of the app.</p>
+<p class="has-text-align-center has-overlay-color has-text-color has-large-font-size">Not coming in tonight? The whole menu travels, except the things that should not. Order direct and we keep the fee instead of the app.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d40)"} -->

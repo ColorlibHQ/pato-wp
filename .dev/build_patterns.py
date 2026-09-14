@@ -105,7 +105,7 @@ def build_header():
         button('<span class="screen-reader-text">Toggle dark mode</span>',
                "#", style="pato-ghost", extra_class="pato-scheme-toggle"),
         button("Book a table", "#pato-reservation"),
-    ], align="right", gap="20")
+    ], align="right", gap="20", nowrap=True)
 
     inner = columns([
         column(brand, width="22%", vertical="center"),
@@ -113,9 +113,15 @@ def build_header():
         column(actions, width="22%", vertical="center"),
     ], align="wide", vertical="center", stack_on_mobile=True)
 
+    # No backgroundColor attribute on purpose.
+    #
+    # A preset colour class emits `background-color: ... !important`, so a
+    # header that declares `base` here cannot be made transparent by a
+    # stylesheet without escalating to !important as well. The background is
+    # set in style.css instead, where the overlay case can simply override it.
     write(
         "header", "Header",
-        group(inner, align="full", padding_y="40", background="base"),
+        group(inner, align="full", padding_y="40"),
         categories=["header"], block_types=["core/template-part/header"],
         inserter=False,
     )
@@ -335,7 +341,7 @@ def build_hidden():
     banner = cover(
         group(
             "\n".join([
-                '<!-- wp:post-title {"textAlign":"center","level":1,"textColor":"overlay","fontSize":"colossal"} /-->',
+                '<!-- wp:post-title {"textAlign":"center","level":1,"textColor":"overlay","className":"pato-banner__title"} /-->',
             ]),
             layout="constrained", content_size="860px",
         ),
@@ -346,7 +352,7 @@ def build_hidden():
     archive_banner = cover(
         group(
             "\n".join([
-                '<!-- wp:query-title {"type":"archive","textAlign":"center","textColor":"overlay","fontSize":"colossal"} /-->',
+                '<!-- wp:query-title {"type":"archive","textAlign":"center","textColor":"overlay","className":"pato-banner__title"} /-->',
                 '<!-- wp:term-description {"textAlign":"center","textColor":"overlay"} /-->',
             ]),
             layout="constrained", content_size="860px",
@@ -357,7 +363,7 @@ def build_hidden():
 
     search_banner = cover(
         group(
-            '<!-- wp:query-title {"type":"search","textAlign":"center","textColor":"overlay","fontSize":"colossal"} /-->',
+            '<!-- wp:query-title {"type":"search","textAlign":"center","textColor":"overlay","className":"pato-banner__title"} /-->',
             layout="constrained", content_size="860px",
         ),
         "banner-contact", dim=60, min_height=340, extra_class="pato-banner",
@@ -384,16 +390,27 @@ def build_hidden():
 # Restaurant sections
 # ===========================================================================
 
-def eyebrow(text):
+def eyebrow(text, align="center"):
     """The script line above a section title, as in the HTML template."""
-    return heading(text, level=3, align="center", style="pato-script", size="x-large")
+    return heading(text, level=3, align=align, style="pato-script",
+                   extra_class="pato-section__script")
 
 
 def section_head(script, title, blurb=None, align="center"):
-    parts = [eyebrow(script), heading(title, level=2, align=align, size="heading")]
+    """A section's script line, its title and an optional standfirst.
+
+    The title carries `pato-section__title`, which is the template's signature
+    treatment: large, uppercase and widely tracked. It is a class rather than
+    a change to theme.json's `heading` size because that size also sets every
+    h2 inside a blog post, where 50px uppercase would be wrong.
+    """
+    parts = [
+        eyebrow(script, align),
+        heading(title, level=2, align=align, extra_class="pato-section__title"),
+    ]
     if blurb:
         parts.append(paragraph(blurb, align=align, color="muted", size="large"))
-    return group("\n".join(parts), layout="constrained", content_size="720px", gap="30")
+    return group("\n".join(parts), layout="constrained", content_size="820px", gap="30")
 
 
 def dish(name, price, note=None):
@@ -516,41 +533,54 @@ def build_menu_sections():
 
 
 def build_hero():
+    """The front page's opening screen.
+
+    Full viewport height and a large tracked uppercase title, which is how the
+    HTML template's hero reads. The first version was a 620px band with a
+    72px sentence-case headline -- correct in its parts and noticeably smaller
+    and quieter than the design it came from.
+    """
     inner = group(
         "\n".join([
-            heading("A table by the fire", level=1, align="center", color="overlay", size="colossal"),
+            heading("Welcome to", level=2, align="center", style="pato-script",
+                    color="overlay", extra_class="pato-hero__eyebrow"),
+            heading("Pato Place", level=1, align="center", color="overlay",
+                    extra_class="pato-hero__title"),
             paragraph("Seasonal plates, an open kitchen and a short, careful wine list &mdash; in the middle of the city since 1998.",
-                      align="center", color="overlay", size="large"),
+                      align="center", color="overlay", size="large",
+                      extra_class="pato-hero__lede"),
             spacer("40"),
             buttons([
                 button("Book a table", "#pato-reservation"),
                 button("See the menu", "#menu", style="pato-outline"),
             ], align="center", gap="30"),
         ]),
-        layout="constrained", content_size="760px", gap="30",
+        layout="constrained", content_size="860px", gap="30",
     )
     write("hero", "Hero",
-          cover(inner, "hero-dining", dim=60, min_height=620, extra_class="pato-banner"),
+          cover(inner, "hero-dining", dim=60, min_height=100, min_height_unit="vh",
+                extra_class="pato-banner pato-hero"),
           categories=["pato-sections", "banner"], keywords=["hero", "banner", "restaurant"],
           viewport=1400,
-          description="Full-width photograph with a headline and two buttons.")
+          description="A full-screen photograph with a large headline and two buttons.")
 
 
 def build_welcome():
     left = image("story-salmon", "A grilled salmon fillet on a salad of tomato and rocket",
                  ratio="4/5", rounded="6px")
     right = group("\n".join([
-        heading("Welcome", level=3, style="pato-script", size="x-large", align="left"),
-        heading("Cooked over fire, eaten slowly", level=2, size="heading"),
+        heading("Since 1998", level=3, style="pato-script", align="left", extra_class="pato-section__script"),
+        heading("Welcome", level=2, extra_class="pato-section__title"),
         paragraph("We opened with six tables and one grill. Most of that is still true: the room is bigger, but everything still comes off the same fire, and the menu is still written the morning it is served."),
         paragraph("Produce comes from growers we have used for years. What they have decided is ready is what you will find on the menu that week."),
         spacer("30"),
         buttons([button("Our story", "#about", style="pato-ghost")]),
     ]), gap="30")
 
+    # Text left, photograph right, as the template has it.
     inner = columns([
-        column(left, width="46%"),
         column(right, width="54%", vertical="center"),
+        column(left, width="46%"),
     ], align="wide", gap="60", vertical="center")
 
     write("welcome", "Welcome: image and text",
@@ -569,8 +599,8 @@ def build_reservation():
     whatever it rendered on activation. A shortcode is expanded every time.
     """
     left = group("\n".join([
-        heading("Reservations", level=3, style="pato-script", size="x-large", align="left"),
-        heading("Book a table", level=2, size="heading"),
+        heading("Reservations", level=3, style="pato-script", align="left", extra_class="pato-section__script"),
+        heading("Book a table", level=2, extra_class="pato-section__title"),
         paragraph("Tell us when and how many, and we will confirm by email. For parties over eight, or to take the whole room, call us on <a href=\"tel:+18001234567\">+1 800 123 4567</a>."),
         spacer("30"),
         ('<!-- wp:html -->\n'
@@ -600,7 +630,7 @@ def build_reservation():
 
 def build_opening_hours():
     inner = "\n".join([
-        section_head("Find us", "Where and when"),
+        section_head("Find us", "Where &amp; when"),
         spacer("60"),
         columns([
             column(group("\n".join([
@@ -676,7 +706,7 @@ def build_chefs():
         for slug, alt, name, role in people
     )
     inner = "\n".join([
-        section_head("The kitchen", "Who cooks your dinner"),
+        section_head("The kitchen", "Our chefs", "The people who cook your dinner, most of whom have been here longer than the menu has."),
         spacer("60"),
         wide_row(cards, gap="50"),
     ])
@@ -714,8 +744,8 @@ def build_reviews():
 
 def build_events():
     inner = group("\n".join([
-        heading("Wine nights, every last Thursday", level=2, align="center", color="overlay", size="heading"),
-        paragraph("Six glasses, six growers, one long table. $55 a head, and we cook to match whatever is being poured.",
+        heading("Wine nights", level=2, align="center", color="overlay", extra_class="pato-section__title"),
+        paragraph("Every last Thursday: six glasses, six growers, one long table. $55 a head, and we cook to match whatever is being poured.",
                   align="center", color="overlay", size="large"),
         spacer("40"),
         buttons([button("Reserve a place", "#pato-reservation", style="pato-outline")], align="center"),
@@ -758,7 +788,7 @@ def build_blog_latest():
         '<!-- /wp:query -->'
     )
     inner = "\n".join([
-        section_head("From the kitchen", "Recent writing"),
+        section_head("From the kitchen", "The blog", "Recipes, wine notes and what is happening in the kitchen."),
         spacer("60"),
         query,
     ])
@@ -820,7 +850,7 @@ def build_faq():
         )
 
     inner = "\n".join([
-        section_head("Before you come", "Questions we are asked"),
+        section_head("Before you come", "Questions", "The things people ask most often, answered properly."),
         spacer("60"),
         group("\n".join(items), layout="constrained", content_size="820px", gap="30",
               extra_class="pato-faq"),
@@ -899,8 +929,8 @@ def build_private_dining():
     left = image("gallery-banquet", "A tall arrangement of roses on a laid banquet table",
                  ratio="4/3", rounded="6px")
     right = group("\n".join([
-        heading("Private dining", level=3, style="pato-script", size="x-large", align="left"),
-        heading("Take the room", level=2, size="heading"),
+        heading("Private dining", level=3, style="pato-script", align="left", extra_class="pato-section__script"),
+        heading("Take the room", level=2, extra_class="pato-section__title"),
         paragraph("The back room seats eighteen around one table, with its own bar and a door that closes. The whole restaurant seats fifty-four."),
         ('<!-- wp:list {"className":"is-style-pato-ticks"} -->\n'
          '<ul class="wp-block-list is-style-pato-ticks">\n'
@@ -982,8 +1012,8 @@ def build_map():
 def build_delivery():
     """Takeaway and delivery, which most restaurant themes forget entirely."""
     inner = group("\n".join([
-        heading("Not coming in tonight?", level=2, align="center", color="overlay", size="heading"),
-        paragraph("The whole menu travels, except the things that should not. Order direct and we keep the fee instead of the app.",
+        heading("Takeaway", level=2, align="center", color="overlay", extra_class="pato-section__title"),
+        paragraph("Not coming in tonight? The whole menu travels, except the things that should not. Order direct and we keep the fee instead of the app.",
                   align="center", color="overlay", size="large"),
         spacer("40"),
         buttons([
@@ -1002,9 +1032,9 @@ def build_delivery():
 
 def build_gift_cards():
     left = group("\n".join([
-        heading("Gift cards", level=3, style="pato-script", size="x-large", align="left"),
-        heading("Dinner, for someone else", level=2, size="heading"),
-        paragraph("Any amount, valid two years, and it can be spent on wine as readily as on food. Sent by email the moment you buy it, or printed and posted if you would rather hand it over."),
+        heading("Gift cards", level=3, style="pato-script", align="left", extra_class="pato-section__script"),
+        heading("Gift cards", level=2, extra_class="pato-section__title"),
+        paragraph("Dinner, for someone else. Any amount, valid two years, and it can be spent on wine as readily as on food. Sent by email the moment you buy it, or printed and posted if you would rather hand it over."),
         spacer("30"),
         buttons([button("Buy a gift card", "#")]),
     ]), gap="30")
@@ -1060,8 +1090,8 @@ def build_hours_banner():
 
 def build_cta_book():
     inner = group("\n".join([
-        heading("A table is the only thing you need to bring", level=2, align="center", size="heading"),
-        paragraph("Booking takes a minute and we confirm by email the same day.",
+        heading("Book a table", level=2, align="center", extra_class="pato-section__title"),
+        paragraph("A table is the only thing you need to bring. Booking takes a minute and we confirm by email the same day.",
                   align="center", color="muted", size="large"),
         spacer("40"),
         buttons([button("Book a table", "#pato-reservation")], align="center"),
@@ -1199,8 +1229,9 @@ def build_starters():
     for slug, cfg in STARTERS.items():
         hero_inner = group("\n".join([
             heading(cfg["eyebrow"], level=3, align="center", style="pato-script",
-                    size="x-large", color="overlay"),
-            heading(cfg["title"], level=1, align="center", color="overlay", size="colossal"),
+                    color="overlay", extra_class="pato-hero__eyebrow"),
+            heading(cfg["title"], level=1, align="center", color="overlay",
+                    extra_class="pato-hero__title"),
             paragraph(cfg["blurb"], align="center", color="overlay", size="large"),
             spacer("40"),
             # Per starter, because half of them have no reservation section:
@@ -1214,8 +1245,8 @@ def build_starters():
         ]), layout="constrained", content_size="780px", gap="30")
 
         write("hero-%s" % slug, "Hero: %s" % cfg["name"],
-              cover(hero_inner, cfg["photo"], dim=62, min_height=600,
-                    extra_class="pato-banner"),
+              cover(hero_inner, cfg["photo"], dim=62, min_height=100,
+                    min_height_unit="vh", extra_class="pato-banner pato-hero"),
               categories=["pato-sections", "banner"],
               keywords=["hero", slug], viewport=1400,
               description="The %s starter's opening screen." % cfg["name"].lower())
@@ -1225,8 +1256,8 @@ def build_starters():
         # brief with six photographs.
         eyebrow_txt, title, para1, para2, photo, alt = cfg["welcome"]
         right = group("\n".join([
-            heading(eyebrow_txt, level=3, style="pato-script", size="x-large", align="left"),
-            heading(title, level=2, size="heading"),
+            heading(eyebrow_txt, level=3, style="pato-script", align="left", extra_class="pato-section__script"),
+            heading(title, level=2, extra_class="pato-section__title"),
             paragraph(para1),
             paragraph(para2),
             spacer("30"),
@@ -1308,7 +1339,8 @@ def build_page_banners():
     ]
     for slug, photo, title, blurb in banners:
         inner = group("\n".join([
-            heading(title, level=1, align="center", color="overlay", size="colossal"),
+            heading(title, level=1, align="center", color="overlay",
+                    extra_class="pato-banner__title"),
             paragraph(blurb, align="center", color="overlay", size="large"),
         ]), layout="constrained", content_size="820px", gap="30")
         write("hidden-%s-banner" % slug, "%s banner" % title,

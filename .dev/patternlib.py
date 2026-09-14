@@ -164,7 +164,7 @@ def button(text, url="#", style=None, width=None, extra_class=None):
     )
 
 
-def buttons(items, align=None, gap=None):
+def buttons(items, align=None, gap=None, nowrap=False):
     """A core/buttons wrapper.
 
     The wrapper carries `class="wp-block-buttons"` and nothing else. Layout
@@ -176,6 +176,8 @@ def buttons(items, align=None, gap=None):
     data = {}
     if align:
         data["layout"] = {"type": "flex", "justifyContent": align}
+    if nowrap:
+        data.setdefault("layout", {"type": "flex"})["flexWrap"] = "nowrap"
     if gap:
         data.setdefault("style", {}).setdefault("spacing", {})["blockGap"] = sp(gap)
 
@@ -388,7 +390,7 @@ def column(inner, width=None, vertical=None, background=None, padding=None,
 
 
 def cover(inner, slug, overlay="dark", dim=60, min_height=None, align="full",
-          extra_class=None, gradient=None, content_position=None):
+          extra_class=None, gradient=None, content_position=None, min_height_unit=None):
     """A core/cover over one of the theme's photographs.
 
     The order of the two children matters: core writes the background <img>
@@ -408,6 +410,8 @@ def cover(inner, slug, overlay="dark", dim=60, min_height=None, align="full",
         data["isUserOverlayColor"] = True
     if min_height:
         data["minHeight"] = min_height
+        if min_height_unit:
+            data["minHeightUnit"] = min_height_unit
     if content_position:
         data["contentPosition"] = content_position
     if align:
@@ -425,7 +429,8 @@ def cover(inner, slug, overlay="dark", dim=60, min_height=None, align="full",
     if extra_class:
         cls.append(extra_class)
 
-    css = ["min-height:%dpx" % min_height] if min_height else []
+    unit = min_height_unit or "px"
+    css = ["min-height:%d%s" % (min_height, unit)] if min_height else []
     style_attr = ' style="%s"' % ";".join(css) if css else ""
 
     if gradient:

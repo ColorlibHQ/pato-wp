@@ -22,12 +22,12 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- wp:column {"verticalAlignment":"center","width":"54%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:54%"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script","style":{"typography":{"textAlign":"left"}},"fontSize":"x-large"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-pato-script has-x-large-font-size">The dough</h3>
+<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script pato-section__script","style":{"typography":{"textAlign":"left"}}} -->
+<h3 class="wp-block-heading has-text-align-left is-style-pato-script pato-section__script">The dough</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"fontSize":"heading"} -->
-<h2 class="wp-block-heading has-heading-font-size">Two days in the making</h2>
+<!-- wp:heading {"className":"pato-section__title"} -->
+<h2 class="wp-block-heading pato-section__title">Two days in the making</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

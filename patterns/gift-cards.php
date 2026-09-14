@@ -16,16 +16,16 @@ defined( 'ABSPATH' ) || exit;
 <div class="wp-block-group alignfull has-surface-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|60","left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":"55%"} -->
 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script","style":{"typography":{"textAlign":"left"}},"fontSize":"x-large"} -->
-<h3 class="wp-block-heading has-text-align-left is-style-pato-script has-x-large-font-size">Gift cards</h3>
+<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script pato-section__script","style":{"typography":{"textAlign":"left"}}} -->
+<h3 class="wp-block-heading has-text-align-left is-style-pato-script pato-section__script">Gift cards</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"fontSize":"heading"} -->
-<h2 class="wp-block-heading has-heading-font-size">Dinner, for someone else</h2>
+<!-- wp:heading {"className":"pato-section__title"} -->
+<h2 class="wp-block-heading pato-section__title">Gift cards</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Any amount, valid two years, and it can be spent on wine as readily as on food. Sent by email the moment you buy it, or printed and posted if you would rather hand it over.</p>
+<p>Dinner, for someone else. Any amount, valid two years, and it can be spent on wine as readily as on food. Sent by email the moment you buy it, or printed and posted if you would rather hand it over.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d30)"} -->

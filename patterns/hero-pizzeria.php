@@ -12,14 +12,14 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/post-pizza.avif' ) ); ?>","dimRatio":62,"overlayColor":"dark","isUserOverlayColor":true,"minHeight":600,"align":"full","className":"pato-banner","layout":{"type":"constrained"}} -->
-<div class="wp-block-cover alignfull pato-banner" style="min-height:600px"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/post-pizza.avif' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-dark-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"780px"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script","style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"x-large"} -->
-<h3 class="wp-block-heading has-text-align-center is-style-pato-script has-overlay-color has-text-color has-x-large-font-size">Wood fired</h3>
+<!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/post-pizza.avif' ) ); ?>","dimRatio":62,"overlayColor":"dark","isUserOverlayColor":true,"minHeight":100,"minHeightUnit":"vh","align":"full","className":"pato-banner pato-hero","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull pato-banner pato-hero" style="min-height:100vh"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/post-pizza.avif' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-dark-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"780px"}} -->
+<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script pato-hero__eyebrow","style":{"typography":{"textAlign":"center"}},"textColor":"overlay"} -->
+<h3 class="wp-block-heading has-text-align-center is-style-pato-script pato-hero__eyebrow has-overlay-color has-text-color">Wood fired</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":1,"style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"colossal"} -->
-<h1 class="wp-block-heading has-text-align-center has-overlay-color has-text-color has-colossal-font-size">Ninety seconds in a very hot oven</h1>
+<!-- wp:heading {"level":1,"className":"pato-hero__title","style":{"typography":{"textAlign":"center"}},"textColor":"overlay"} -->
+<h1 class="wp-block-heading has-text-align-center pato-hero__title has-overlay-color has-text-color">Ninety seconds in a very hot oven</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"large"} -->

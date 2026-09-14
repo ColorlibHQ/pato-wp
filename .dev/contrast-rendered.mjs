@@ -25,7 +25,11 @@ const palettes = ( process.env.PATO_PALETTES || '' ).split( ',' ).filter( Boolea
 const browser = await chromium.launch();
 const page = await ( await browser.newContext( { viewport: { width: 1400, height: 1000 } } ) ).newPage();
 
-await page.goto( site + path, { waitUntil: 'networkidle', timeout: 90000 } );
+// `domcontentloaded` plus a settle, not `networkidle`: a production site with
+// analytics or a chat widget may never reach network idle at all, and the
+// check then fails as a timeout rather than a contrast result.
+await page.goto( site + path, { waitUntil: 'domcontentloaded', timeout: 90000 } );
+await page.waitForTimeout( 2500 );
 
 // PATO_DARK=1 measures the same page with dark mode on, which is where the
 // palette is lifted rather than replaced and is the likeliest place for a
@@ -88,23 +92,35 @@ const findings = await page.evaluate( () => {
 			return;
 		}
 
-		// Anything over a photograph is judged by eye, not by this: the
-		// backdrop is pixels, not a colour.
+		// Anything whose backdrop is not its DOM ancestry is out of scope: the
+		// backdrop is pixels, or another element entirely, and this measures
+		// neither.
+		//
+		// Two cases. A photograph behind the text -- a cover or any background
+		// image. And an element taken out of flow: the overlaid header sits on
+		// the hero but is a SIBLING of it, so climbing its ancestors finds the
+		// page background and reports white-on-white for navigation that is
+		// plainly legible on the photograph. Treating a positioned ancestor as
+		// out of scope is what stops that false positive.
 		let node = el;
-		let onImage = false;
-		while ( node ) {
+		let unmeasurable = false;
+		while ( node && node !== document.body ) {
 			const s = getComputedStyle( node );
 			if ( s.backgroundImage && 'none' !== s.backgroundImage ) {
-				onImage = true;
+				unmeasurable = true;
 				break;
 			}
 			if ( node.classList && node.classList.contains( 'wp-block-cover' ) ) {
-				onImage = true;
+				unmeasurable = true;
+				break;
+			}
+			if ( 'absolute' === s.position || 'fixed' === s.position ) {
+				unmeasurable = true;
 				break;
 			}
 			node = node.parentElement;
 		}
-		if ( onImage ) {
+		if ( unmeasurable ) {
 			return;
 		}
 

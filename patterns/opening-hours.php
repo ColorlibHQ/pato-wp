@@ -12,13 +12,13 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"},"anchor":"hours"} -->
-<div class="wp-block-group alignfull" id="hours" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"720px"}} -->
-<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script","style":{"typography":{"textAlign":"center"}},"fontSize":"x-large"} -->
-<h3 class="wp-block-heading has-text-align-center is-style-pato-script has-x-large-font-size">Find us</h3>
+<div class="wp-block-group alignfull" id="hours" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"820px"}} -->
+<div class="wp-block-group"><!-- wp:heading {"level":3,"className":"is-style-pato-script pato-section__script","style":{"typography":{"textAlign":"center"}}} -->
+<h3 class="wp-block-heading has-text-align-center is-style-pato-script pato-section__script">Find us</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"fontSize":"heading"} -->
-<h2 class="wp-block-heading has-text-align-center has-heading-font-size">Where and when</h2>
+<!-- wp:heading {"className":"pato-section__title","style":{"typography":{"textAlign":"center"}}} -->
+<h2 class="wp-block-heading has-text-align-center pato-section__title">Where &amp; when</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 

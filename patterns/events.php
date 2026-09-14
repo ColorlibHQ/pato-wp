@@ -14,12 +14,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/intro-ribs.avif' ) ); ?>","dimRatio":70,"overlayColor":"dark","isUserOverlayColor":true,"minHeight":460,"align":"full","layout":{"type":"constrained"}} -->
 <div class="wp-block-cover alignfull" style="min-height:460px"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'assets/images/intro-ribs.avif' ) ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-dark-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"720px"}} -->
-<div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"heading"} -->
-<h2 class="wp-block-heading has-text-align-center has-overlay-color has-text-color has-heading-font-size">Wine nights, every last Thursday</h2>
+<div class="wp-block-group"><!-- wp:heading {"className":"pato-section__title","style":{"typography":{"textAlign":"center"}},"textColor":"overlay"} -->
+<h2 class="wp-block-heading has-text-align-center pato-section__title has-overlay-color has-text-color">Wine nights</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"overlay","fontSize":"large"} -->
-<p class="has-text-align-center has-overlay-color has-text-color has-large-font-size">Six glasses, six growers, one long table. $55 a head, and we cook to match whatever is being poured.</p>
+<p class="has-text-align-center has-overlay-color has-text-color has-large-font-size">Every last Thursday: six glasses, six growers, one long table. $55 a head, and we cook to match whatever is being poured.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:spacer {"height":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dspacing\u002d\u002d40)"} -->

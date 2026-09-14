@@ -13,7 +13,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PATO_VERSION', '1.1.0' );
+define( 'PATO_VERSION', '1.2.0' );
 
 /**
  * Theme supports.
