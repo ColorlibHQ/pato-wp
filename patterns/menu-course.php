@@ -11,8 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading {"className":"is-style-pato-ruled","style":{"typography":{"textAlign":"center"}},"fontSize":"heading"} -->
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"},"anchor":"menu"} -->
+<div class="wp-block-group alignfull" id="menu" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading {"className":"is-style-pato-ruled","style":{"typography":{"textAlign":"center"}},"fontSize":"heading"} -->
 <h2 class="wp-block-heading has-text-align-center is-style-pato-ruled has-heading-font-size">Starters</h2>
 <!-- /wp:heading -->
 

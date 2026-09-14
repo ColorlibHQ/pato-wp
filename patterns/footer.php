@@ -11,19 +11,19 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<!-- wp:group {"align":"full","className":"pato-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"backgroundColor":"dark","textColor":"base","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull pato-footer has-base-color has-dark-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|50"}}}} -->
+<!-- wp:group {"align":"full","className":"pato-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"backgroundColor":"dark","textColor":"overlay","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull pato-footer has-overlay-color has-dark-background-color has-text-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|50"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"26%"} -->
 <div class="wp-block-column" style="flex-basis:26%"><!-- wp:paragraph {"className":"pato-footer__title"} -->
 <p class="pato-footer__title"><strong>Find us</strong></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"base","fontSize":"small"} -->
-<p class="has-base-color has-text-color has-small-font-size">80 Broad Street<br>New York, NY 10004</p>
+<!-- wp:paragraph {"textColor":"overlay","fontSize":"small"} -->
+<p class="has-overlay-color has-text-color has-small-font-size">80 Broad Street<br>New York, NY 10004</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"base","fontSize":"small"} -->
-<p class="has-base-color has-text-color has-small-font-size"><a href="tel:+18001234567">+1 800 123 4567</a><br><a href="mailto:hello@example.com">hello@example.com</a></p>
+<!-- wp:paragraph {"textColor":"overlay","fontSize":"small"} -->
+<p class="has-overlay-color has-text-color has-small-font-size"><a href="tel:+18001234567">+1 800 123 4567</a><br><a href="mailto:hello@example.com">hello@example.com</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -74,11 +74,11 @@ defined( 'ABSPATH' ) || exit;
 <p class="pato-footer__title"><strong>Elsewhere</strong></p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"base","fontSize":"small"} -->
-<p class="has-base-color has-text-color has-small-font-size">Follow the kitchen, the specials and whatever the chef is pickling this week.</p>
+<!-- wp:paragraph {"textColor":"overlay","fontSize":"small"} -->
+<p class="has-overlay-color has-text-color has-small-font-size">Follow the kitchen, the specials and whatever the chef is pickling this week.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:social-links {"iconColor":"base","iconColorValue":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dcolor\u002d\u002dbase)","className":"is-style-logos-only","layout":{"type":"flex"}} -->
+<!-- wp:social-links {"iconColor":"overlay","iconColorValue":"var(\u002d\u002dwp\u002d\u002dpreset\u002d\u002dcolor\u002d\u002doverlay)","className":"is-style-logos-only","layout":{"type":"flex"}} -->
 <ul class="wp-block-social-links has-icon-color is-style-logos-only"><!-- wp:social-link {"url":"#","service":"instagram"} /-->
 
 <!-- wp:social-link {"url":"#","service":"facebook"} /-->
@@ -101,12 +101,12 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:spacer -->
 
 <!-- wp:group {"align":"wide","className":"is-layout-flex is-content-justification-space-between","style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-<div class="wp-block-group alignwide is-layout-flex is-content-justification-space-between"><!-- wp:paragraph {"textColor":"base","fontSize":"small"} -->
-<p class="has-base-color has-text-color has-small-font-size">© <?php echo esc_html( gmdate( 'Y' ) ); ?> Pato. All rights reserved.</p>
+<div class="wp-block-group alignwide is-layout-flex is-content-justification-space-between"><!-- wp:paragraph {"textColor":"overlay","fontSize":"small"} -->
+<p class="has-overlay-color has-text-color has-small-font-size">© <?php echo esc_html( gmdate( 'Y' ) ); ?> Pato. All rights reserved.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"textColor":"base","fontSize":"small"} -->
-<p class="has-base-color has-text-color has-small-font-size">Made by <a href="https://colorlib.com/" rel="nofollow">Colorlib</a></p>
+<!-- wp:paragraph {"textColor":"overlay","fontSize":"small"} -->
+<p class="has-overlay-color has-text-color has-small-font-size">Made by <a href="https://colorlib.com/" rel="nofollow">Colorlib</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->

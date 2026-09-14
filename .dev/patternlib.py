@@ -246,9 +246,16 @@ def shortcode(text):
 def group(inner, align=None, background=None, text=None, padding_y=None,
           gap=None, layout="constrained", content_size=None, extra_class=None,
           style=None, tag="div", justify=None, orientation=None, wrap=None,
-          padding=None, radius=None):
-    """A group. Sections use align='full' with top/bottom padding only."""
+          padding=None, radius=None, anchor=None):
+    """A group. Sections use align='full' with top/bottom padding only.
+
+    `anchor` becomes the element's id, which is how an in-page link reaches a
+    section. Anchors must be unique per page: two sections sharing one id is
+    invalid HTML and the browser only ever scrolls to the first.
+    """
     data = {}
+    if anchor:
+        data["anchor"] = anchor
     css = []
     cls = ["wp-block-group"]
 
@@ -305,8 +312,9 @@ def group(inner, align=None, background=None, text=None, padding_y=None,
             cls.append("is-content-justification-" + justify)
 
     style_attr = ' style="%s"' % ";".join(css) if css else ""
-    return '<!-- wp:group%s -->\n<%s class="%s"%s>\n%s\n</%s>\n<!-- /wp:group -->' % (
-        attrs(data), tag, classes(*cls), style_attr, inner, tag
+    id_attr = ' id="%s"' % anchor if anchor else ""
+    return '<!-- wp:group%s -->\n<%s%s class="%s"%s>\n%s\n</%s>\n<!-- /wp:group -->' % (
+        attrs(data), tag, id_attr, classes(*cls), style_attr, inner, tag
     )
 
 
@@ -418,9 +426,13 @@ def cover(inner, slug, overlay="dark", dim=60, min_height=None, align="full",
         span = ('<span aria-hidden="true" class="wp-block-cover__background '
                 'has-background-gradient" style="background:%s"></span>' % gradient)
     else:
+        # Core's dimRatioToClass() rounds to the nearest ten -- the attribute
+        # keeps the exact value but the class does not, because the stylesheet
+        # only defines steps of ten. Writing `has-background-dim-62` for
+        # dimRatio 62 makes the block invalid; it has to be `-60`.
         span = ('<span aria-hidden="true" class="wp-block-cover__background '
                 'has-%s-background-color has-background-dim-%d has-background-dim"></span>'
-                % (overlay, dim))
+                % (overlay, 10 * round(dim / 10)))
 
     url = "<?php echo esc_url( get_theme_file_uri( 'assets/images/%s.avif' ) ); ?>" % slug
     attr_json = attrs(data).replace('"PATO_IMAGE"', '"%s"' % url)

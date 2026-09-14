@@ -152,4 +152,5 @@ add_filter( 'render_block_core/shortcode', 'pato_render_shortcode_block' );
 require get_template_directory() . '/inc/forms.php';
 require get_template_directory() . '/inc/reservations.php';
 require get_template_directory() . '/inc/front-page-setup.php';
+require get_template_directory() . '/inc/starter-sites.php';
 require get_template_directory() . '/inc/updates.php';

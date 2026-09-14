@@ -85,6 +85,12 @@ PALETTE = [
     ("Accent",      "accent",       "#b8863b"),   # brass, for the script type
     ("Dark",        "dark",         "#15100e"),
     ("Divider",     "divider",      "#e2d9d1"),
+    # Text that sits on a dimmed photograph or on the `dark` ground. It is
+    # near-white in EVERY palette, including the dark ones, which is the whole
+    # point: `base` is the page background, so in a dark palette `base` is dark
+    # and "white text on a photo" written as `base` comes out black-on-black.
+    # That bug reached the footer and both dark starters before it was caught.
+    ("Overlay",     "overlay",      "#ffffff"),
 ]
 
 # Colour-only variations. Every one keeps the same ten slugs.
@@ -93,27 +99,27 @@ COLOR_SETS = {
     "colors-1-ember": ("Ember", {
         "base": "#ffffff", "surface": "#faf7f4", "contrast": "#1a1513", "muted": "#5f5853",
         "primary": "#d41b22", "primary-deep": "#a8141a", "flame": "#ec1d25",
-        "accent": "#b8863b", "dark": "#15100e", "divider": "#e2d9d1",
+        "accent": "#b8863b", "dark": "#15100e", "overlay": "#ffffff", "divider": "#e2d9d1",
     }),
     "colors-2-olive": ("Olive", {
         "base": "#ffffff", "surface": "#f7f8f3", "contrast": "#171c12", "muted": "#555c4c",
         "primary": "#4d6b1f", "primary-deep": "#3a5116", "flame": "#6f9a2d",
-        "accent": "#a8762c", "dark": "#141810", "divider": "#dbe0d0",
+        "accent": "#a8762c", "dark": "#141810", "overlay": "#ffffff", "divider": "#dbe0d0",
     }),
     "colors-3-vineyard": ("Vineyard", {
         "base": "#ffffff", "surface": "#faf5f7", "contrast": "#1d1016", "muted": "#615059",
         "primary": "#8e1d45", "primary-deep": "#6d1434", "flame": "#b32657",
-        "accent": "#b8863b", "dark": "#180d12", "divider": "#e6d5dd",
+        "accent": "#b8863b", "dark": "#180d12", "overlay": "#ffffff", "divider": "#e6d5dd",
     }),
     "colors-4-charcoal": ("Charcoal", {
         "base": "#ffffff", "surface": "#f6f6f5", "contrast": "#16171a", "muted": "#585b60",
         "primary": "#2f3337", "primary-deep": "#1c1f22", "flame": "#4a5057",
-        "accent": "#b8863b", "dark": "#121314", "divider": "#dcdcda",
+        "accent": "#b8863b", "dark": "#121314", "overlay": "#ffffff", "divider": "#dcdcda",
     }),
     "colors-5-harvest": ("Harvest", {
         "base": "#ffffff", "surface": "#fdf8f0", "contrast": "#1f1708", "muted": "#645a45",
         "primary": "#9a5b12", "primary-deep": "#77450b", "flame": "#c9791d",
-        "accent": "#4d6b1f", "dark": "#1a1409", "divider": "#eadfcb",
+        "accent": "#4d6b1f", "dark": "#1a1409", "overlay": "#ffffff", "divider": "#eadfcb",
     }),
     # Midnight's primary is deliberately brighter than the light palettes'.
     # On a dark ground a button reads as dark-on-bright, so the red has to be
@@ -122,17 +128,17 @@ COLOR_SETS = {
     "colors-6-midnight": ("Midnight", {
         "base": "#14161c", "surface": "#1c1f27", "contrast": "#f4f3f1", "muted": "#a8a49e",
         "primary": "#ff7a7f", "primary-deep": "#ef4a51", "flame": "#ff9a9e",
-        "accent": "#d6a85c", "dark": "#0c0e12", "divider": "#333743",
+        "accent": "#d6a85c", "dark": "#0c0e12", "overlay": "#ffffff", "divider": "#333743",
     }),
     "colors-7-cellar": ("Cellar", {
         "base": "#16120f", "surface": "#1f1a16", "contrast": "#f6f1ea", "muted": "#aaa096",
         "primary": "#d9913f", "primary-deep": "#b4732c", "flame": "#eaa955",
-        "accent": "#c96a5c", "dark": "#0e0b09", "divider": "#3a322b",
+        "accent": "#c96a5c", "dark": "#0e0b09", "overlay": "#ffffff", "divider": "#3a322b",
     }),
     "colors-8-seaside": ("Seaside", {
         "base": "#ffffff", "surface": "#f2f8f9", "contrast": "#0e1b20", "muted": "#4c5f65",
         "primary": "#0d6b7d", "primary-deep": "#084e5c", "flame": "#149bb4",
-        "accent": "#b8863b", "dark": "#0a161a", "divider": "#cfe0e4",
+        "accent": "#b8863b", "dark": "#0a161a", "overlay": "#ffffff", "divider": "#cfe0e4",
     }),
 }
 
@@ -172,6 +178,8 @@ CONTRAST_CHECKS = (
     ("contrast", "base"), ("muted", "base"),
     ("contrast", "surface"), ("muted", "surface"),
     ("primary", "base"), ("primary", "surface"),
+    # The footer and every dark section put this pair together.
+    ("overlay", "dark"),
 )
 
 # ---------------------------------------------------------------------------
@@ -478,11 +486,11 @@ SECTION_STYLES = [
         "color": od(("background", col("surface")), ("text", col("contrast"))),
     }),
     ("section-dark", "Dark ground", {
-        "color": od(("background", col("dark")), ("text", col("base"))),
+        "color": od(("background", col("dark")), ("text", col("overlay"))),
         "elements": od(
-            ("heading", od(("color", od(("text", col("base")))))),
-            ("link", od(("color", od(("text", col("base")))),
-                        (":hover", od(("color", od(("text", col("base")))))))),
+            ("heading", od(("color", od(("text", col("overlay")))))),
+            ("link", od(("color", od(("text", col("overlay")))),
+                        (":hover", od(("color", od(("text", col("overlay")))))))),
         ),
     }),
     ("card", "Card", {

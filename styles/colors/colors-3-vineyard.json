@@ -55,6 +55,11 @@
 					"name": "Divider",
 					"slug": "divider",
 					"color": "#e6d5dd"
+				},
+				{
+					"name": "Overlay",
+					"slug": "overlay",
+					"color": "#ffffff"
 				}
 			]
 		}

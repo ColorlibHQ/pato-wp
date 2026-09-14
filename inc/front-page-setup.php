@@ -135,12 +135,24 @@ function pato_create_front_page() {
 add_action( 'after_switch_theme', 'pato_create_front_page' );
 
 /**
- * The markup of a registered pattern.
+ * The markup of a registered pattern, with nested pattern references expanded.
  *
- * @param string $name Pattern name, e.g. `pato/page-home`.
+ * The page patterns are built out of `<!-- wp:pattern {"slug":"..."} /-->`
+ * references. Stored in a post those still *render* — WordPress resolves them
+ * on output — but they are not editable: the editor shows one opaque block per
+ * section, and changing a word means finding the pattern file in the theme.
+ * The whole point of building the starter site as real content is that the
+ * owner can rewrite it, so the references are resolved here, recursively.
+ *
+ * `$seen` guards against a pattern that references itself, directly or through
+ * a chain. Without it that is an infinite loop and a white screen, at
+ * activation, on someone else's site.
+ *
+ * @param string   $name Pattern name, e.g. `pato/page-home`.
+ * @param string[] $seen Names already being expanded on this branch.
  * @return string Pattern content, or '' when it is not registered.
  */
-function pato_pattern_content( $name ) {
+function pato_pattern_content( $name, $seen = array() ) {
 	if ( ! class_exists( 'WP_Block_Patterns_Registry' ) ) {
 		return '';
 	}
@@ -151,8 +163,31 @@ function pato_pattern_content( $name ) {
 	}
 
 	$pattern = $registry->get_registered( $name );
+	$content = isset( $pattern['content'] ) ? $pattern['content'] : '';
 
-	return isset( $pattern['content'] ) ? $pattern['content'] : '';
+	if ( '' === $content || in_array( $name, $seen, true ) ) {
+		return $content;
+	}
+
+	$seen[] = $name;
+
+	return (string) preg_replace_callback(
+		'#<!--\s*wp:pattern\s+(\{.*?\})\s*/-->#s',
+		static function ( $matches ) use ( $seen ) {
+			$attributes = json_decode( $matches[1], true );
+
+			if ( ! is_array( $attributes ) || empty( $attributes['slug'] ) ) {
+				return $matches[0];
+			}
+
+			$nested = pato_pattern_content( $attributes['slug'], $seen );
+
+			// A reference we cannot resolve is left as it was: it still
+			// renders, which is better than deleting the section.
+			return '' === $nested ? $matches[0] : $nested;
+		},
+		$content
+	);
 }
 
 /**

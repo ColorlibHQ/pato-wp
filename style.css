@@ -128,10 +128,15 @@ video {
 /*
  * On a dark ground the outline button has to take its colour from the section,
  * not from the palette's primary, or it disappears into the photograph.
+ *
+ * `overlay`, not `base`: `base` is the page background, so in the Midnight and
+ * Cellar palettes it is nearly black and this button would be black-on-photo.
+ * `overlay` is near-white in every palette, which is what text over a dimmed
+ * photograph needs.
  */
 .has-dark-background-color .wp-block-button.is-style-pato-outline > .wp-block-button__link,
 .wp-block-cover .wp-block-button.is-style-pato-outline > .wp-block-button__link {
-	color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--overlay);
 }
 
 .wp-block-button.is-style-pato-ghost > .wp-block-button__link {
@@ -551,4 +556,103 @@ video {
 	color: inherit;
 	text-decoration: underline;
 	text-underline-offset: 0.25em;
+}
+
+/* ---------------------------------------------------------------------------
+   FAQ
+   ---------------------------------------------------------------------------
+   core/details, so the open/close is the browser's and needs no JavaScript,
+   works before hydration, and is searchable by find-in-page in Chrome.
+*/
+
+.pato-faq__item {
+	border-bottom: 1px solid var(--wp--preset--color--divider);
+	padding: 1.35rem 0;
+}
+
+.pato-faq__item summary {
+	cursor: pointer;
+	list-style: none;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 700;
+	line-height: 1.4;
+	padding-right: 2.5rem;
+	position: relative;
+}
+
+/* Safari draws its own triangle and ignores `list-style` on summary. */
+.pato-faq__item summary::-webkit-details-marker {
+	display: none;
+}
+
+/* A plus that becomes a minus, drawn rather than typed so it inherits colour
+   and needs no icon font. */
+.pato-faq__item summary::after,
+.pato-faq__item summary::before {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 14px;
+	height: 2px;
+	background-color: var(--wp--preset--color--primary);
+	transform: translateY(-50%);
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.pato-faq__item summary::before {
+	transform: translateY(-50%) rotate(90deg);
+}
+
+.pato-faq__item[open] summary::before {
+	transform: translateY(-50%) rotate(0deg);
+	opacity: 0;
+}
+
+.pato-faq__item summary:focus-visible {
+	outline: 3px solid var(--wp--preset--color--primary);
+	outline-offset: 4px;
+}
+
+.pato-faq__item > :not(summary) {
+	margin-top: 0.9rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Set menu
+   --------------------------------------------------------------------------- */
+
+.pato-set-menu__list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.pato-set-menu__list > li {
+	padding: 0.7rem 0;
+	border-bottom: 1px solid var(--wp--preset--color--divider);
+}
+
+.pato-set-menu__list > li:last-child {
+	border-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Map
+   --------------------------------------------------------------------------- */
+
+.pato-map {
+	display: block;
+	width: 100%;
+	height: 420px;
+	border: 0;
+	border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+	.pato-map {
+		height: 300px;
+	}
 }
