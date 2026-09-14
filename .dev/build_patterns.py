@@ -81,12 +81,16 @@ def build_header():
         extra_class="pato-header__brand",
     )
 
+    # Seven items at a 24px gap need about 700px and the column gives 560, so
+    # the menu wrapped to two rows at every width including 1600. A 16px gap
+    # and a wider column fit it on one line, and `nowrap` makes a future
+    # eighth item collapse to the overlay rather than silently wrapping again.
     nav = (
         '<!-- wp:navigation ' + attrs({
             "overlayMenu": "mobile",
             "className": "pato-nav",
-            "layout": {"type": "flex", "justifyContent": "right", "flexWrap": "wrap"},
-            "style": {"spacing": {"blockGap": "var:preset|spacing|40"}},
+            "layout": {"type": "flex", "justifyContent": "right", "flexWrap": "nowrap"},
+            "style": {"spacing": {"blockGap": "var:preset|spacing|30"}},
         }).strip() + ' /-->'
     )
 
@@ -104,9 +108,9 @@ def build_header():
     ], align="right", gap="20")
 
     inner = columns([
-        column(brand, width="28%", vertical="center"),
-        column(nav, width="48%", vertical="center"),
-        column(actions, width="24%", vertical="center"),
+        column(brand, width="22%", vertical="center"),
+        column(nav, width="56%", vertical="center"),
+        column(actions, width="22%", vertical="center"),
     ], align="wide", vertical="center", stack_on_mobile=True)
 
     write(
