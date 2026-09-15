@@ -121,6 +121,13 @@ is correct: it refuses any site that already has more than one page.
   entire footer black-on-black in the two dark palettes.
 - **`wp_update_post()` unslashes.** Writing JSON to a post without `wp_slash()`
   eats the backslashes and the content stops parsing — silently.
+- **So does `wp_insert_post()`, and pattern markup is full of backslashes.**
+  Block attributes escape `--` as `\u002d`; inserted unslashed, every spacer
+  stored `var(u002du002dwp…)` and opened as "unexpected or invalid content" —
+  eight on a starter home page, shipped in 1.0.0 and 1.1.0. The front end
+  renders the saved HTML, so it looked perfect. `validate-blocks.mjs` checked
+  the patterns (fine) and never the pages built from them; it now parses stored
+  pages and menus too. `inc/repair.php` fixes sites that already have it.
 - **An empty `core/button` renders nothing.** Give icon-only buttons a
   screen-reader label rather than empty text.
 - **Cover `dimRatio` must round to the nearest ten in the CLASS** (core's

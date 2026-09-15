@@ -13,7 +13,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PATO_VERSION', '1.1.0' );
+define( 'PATO_VERSION', '1.1.1' );
 
 /**
  * Theme supports.
@@ -153,6 +153,7 @@ require get_template_directory() . '/inc/forms.php';
 require get_template_directory() . '/inc/reservations.php';
 require get_template_directory() . '/inc/front-page-setup.php';
 require get_template_directory() . '/inc/starter-sites.php';
+require get_template_directory() . '/inc/repair.php';
 require get_template_directory() . '/inc/scheme.php';
 require get_template_directory() . '/inc/woocommerce.php';
 require get_template_directory() . '/inc/updates.php';

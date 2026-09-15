@@ -104,11 +104,14 @@ function pato_create_front_page() {
 			}
 		}
 
+		// wp_insert_post() unslashes its input. Pattern markup carries JSON escapes
+		// such as \u002d in block attributes; without wp_slash() they lose their
+		// backslash and every spacer opens as "unexpected or invalid content".
 		$id = wp_insert_post(
 			array(
 				'post_title'   => $page['title'],
 				'post_name'    => $slug,
-				'post_content' => $content,
+				'post_content' => wp_slash( $content ),
 				'post_status'  => 'publish',
 				'post_type'    => 'page',
 			)
@@ -239,7 +242,7 @@ function pato_create_primary_menu( $pages ) {
 		array(
 			'post_title'   => __( 'Primary', 'pato' ),
 			'post_name'    => 'primary',
-			'post_content' => $items,
+			'post_content' => wp_slash( $items ),
 			'post_status'  => 'publish',
 			'post_type'    => 'wp_navigation',
 		)

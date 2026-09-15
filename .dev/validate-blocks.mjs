@@ -1,6 +1,6 @@
 /**
- * Parses every template and part through the block parser and fails on any
- * invalid or missing block.
+ * Parses every template, part, pattern and stored page through the block parser
+ * and fails on any invalid or missing block.
  *
  * Block comment attributes have to match what a block's save function produces.
  * When they do not, the editor shows "this block contains unexpected or invalid
@@ -85,6 +85,19 @@ const problems = await page.evaluate( async () => {
 		walk( window.wp.blocks.parse( pattern.content ), pattern.name, out );
 	}
 
+	// Stored pages and menus too. A pattern can be valid while the page built
+	// from it is not: wp_insert_post() unslashes, so content inserted without
+	// wp_slash() loses the backslash from every \\u002d in a block attribute.
+	// Only the stored copy shows that, so check what activation and the starter
+	// importer actually wrote.
+	for ( const type of [ 'pages', 'navigation' ] ) {
+		const items = await window.wp.apiFetch( { path: '/wp/v2/' + type + '?per_page=100&context=edit&status=publish,draft' } );
+
+		for ( const item of items ) {
+			walk( window.wp.blocks.parse( item.content.raw ), type + '/' + item.id + ' (' + ( item.title?.raw || item.slug ) + ')', out );
+		}
+	}
+
 	return out;
 } );
 
@@ -95,4 +108,4 @@ if ( problems.length ) {
 	process.exit( 1 );
 }
 
-console.log( 'Every block in every template, part and pattern is valid.' );
+console.log( 'Every block in every template, part, pattern, page and menu is valid.' );

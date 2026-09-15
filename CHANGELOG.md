@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.1] - September 2026
+
+Pages built by Pato no longer open in the editor with "This block contains
+unexpected or invalid content".
+
+Activating the theme and importing a starter site both copy pattern markup into
+real pages with `wp_insert_post()`, which strips backslashes from what it is
+given. Block attributes carry JSON escapes — every spacer stores its height as
+`var(\u002d\u002dwp…)` — so the stored pages lost them, and the editor flagged
+every spacer: eight on a starter home page. The front end renders from the
+saved HTML, not the attributes, so it looked right and nobody noticed.
+
+### Fixed
+- Activation, the starter importer and the navigation menu now pass their
+  content through `wp_slash()`.
+- **Existing sites are repaired on update.** The first time an administrator
+  opens the dashboard afterwards, Pato puts the missing backslash back in pages
+  and menus where it was stripped. Only that one sequence inside block
+  attributes is touched; the text of a page is never changed.
+
+### Changed
+- `.dev/validate-blocks.mjs` now checks stored pages and navigation menus as
+  well as templates, parts and patterns — the check that would have caught this.
+
 ## [1.1.0] - September 2026
 
 The six starter sites are now six restaurants rather than one restaurant in six

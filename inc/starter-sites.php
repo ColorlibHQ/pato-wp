@@ -94,7 +94,8 @@ function pato_import_starter( $slug ) {
 	$id = wp_insert_post(
 		array(
 			'post_title'   => $starter['name'],
-			'post_content' => $content,
+			// Slashed because wp_insert_post() unslashes; see pato_create_front_page().
+			'post_content' => wp_slash( $content ),
 			'post_status'  => 'publish',
 			'post_type'    => 'page',
 		),
