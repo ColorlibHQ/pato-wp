@@ -1,0 +1,23 @@
+{
+ "pato-docs-upload-theme.png": "WordPress Add Themes screen with the Upload Theme panel open, showing a Choose File button and an Install Now button.",
+ "pato-docs-pages-created.png": "The Pages screen straight after activating Pato, listing About, Blog (Posts Page), Contact, Gallery, Home (Front Page), Menu and Reservation.",
+ "pato-docs-appearance-menu.png": "The WordPress admin menu with Appearance expanded to Themes, Editor, Fonts and Starter sites, with Starter sites highlighted.",
+ "pato-docs-starter-sites.png": "The Appearance, Starter sites screen: six cards for Bistro, Fine dining, Café, Pizzeria, Bar and Bakery, each with a short description and an Import this button.",
+ "pato-docs-reading-settings.png": "Settings, Reading with A static page selected, Home chosen as the homepage and Blog as the posts page.",
+ "pato-docs-reservation-form.png": "Pato's booking form with fields for name, email address, phone number, date, time, number of people and a message, and a Book a table button.",
+ "pato-docs-dark-mode.jpg": "The same menu section side by side in light mode and in dark mode, with the palette's red prices kept in both.",
+ "pato-docs-edit-price.jpg": "The block editor with a menu price selected: a block toolbar above the dish row, Paragraph settings in the sidebar and the block breadcrumb along the bottom.",
+ "pato-docs-list-view.jpg": "The block editor's List View beside the Home page, with the hero Cover expanded into its heading, paragraph, spacer and buttons, followed by the page's other sections.",
+ "pato-docs-pattern-inserter.jpg": "The block inserter's Patterns tab with the Pato: menus category open, showing previews of ready-made menu sections.",
+ "pato-docs-template-menu.jpg": "The page settings sidebar with the Template option opened, offering Edit template, Change template, Use default template and Create new template.",
+ "pato-docs-styles.jpg": "The Site Editor Styles panel with Browse styles, Typography, Colors, Background, Shadows and Layout, beside a preview of the home page.",
+ "pato-docs-browse-styles.jpg": "Browse styles in the Site Editor, showing nine colour variations and six typography variations.",
+ "pato-docs-template-parts.jpg": "The Site Editor Patterns screen listing Pato's three template parts: Footer, Header and Sidebar.",
+ "pato-docs-navigation.jpg": "The Site Editor Navigation panel showing the Primary menu: Home, Menu, Reservation, Gallery, About, Blog and Contact.",
+ "pato-docs-edit-header.jpg": "The Header template part open in the Site Editor: a logo placeholder, the site title, the navigation links and a Book a table button.",
+ "pato-docs-six-starters.jpg": "The opening screens of Pato's six starter sites, Bistro, Fine dining, Café, Pizzeria, Bar and Bakery, each with its own photograph, headline and colours.",
+ "pato-docs-dark-mode.gif": "Animation: clicking the moon icon in the header switches the menu page to dark mode, and clicking it again switches back.",
+ "pato-docs-edit-price.gif": "Animation: clicking a price on the menu, selecting it and typing a new price, after which the Save button is highlighted.",
+ "pato-docs-import-starter.gif": "Animation: clicking Import this on the Pizzeria starter, the Imported, and set as the front page notice, and the new pizzeria home page.",
+ "pato-docs-palettes.gif": "Animation: clicking through colour variations in Browse styles while the preview changes from red to olive, charcoal, the dark Midnight and Cellar palettes, and teal."
+}

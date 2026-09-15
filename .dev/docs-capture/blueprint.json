@@ -1,0 +1,9 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "steps": [
+    { "step": "setSiteOptions", "options": { "blogname": "Pato", "blogdescription": "Neighbourhood bistro", "timezone_string": "Europe/London" } },
+    { "step": "activateTheme", "themeFolderName": "pato" },
+    { "step": "login", "username": "admin", "password": "password" }
+  ]
+}

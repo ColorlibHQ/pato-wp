@@ -1,0 +1,12 @@
+import { admin, BASE, watchdog } from './docs-lib.mjs';
+watchdog(480000);
+const { b, pg } = await admin();
+pg.setDefaultTimeout(300000);
+await pg.goto(BASE + '/wp-admin/themes.php?page=themecheck', { waitUntil: 'domcontentloaded' });
+await pg.selectOption('select[name="themename"]', 'pato');
+await Promise.all([pg.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 400000 }), pg.locator('input[type="submit"]').first().click()]);
+const text = await pg.evaluate(() => document.querySelector('#wpbody-content')?.innerText || '');
+const count = t => (text.match(new RegExp('\\b' + t + '\\b', 'g')) || []).length;
+console.log('REQUIRED', count('REQUIRED'), '| WARNING', count('WARNING'), '| RECOMMENDED', count('RECOMMENDED'), '| INFO', count('INFO'));
+for (const line of text.split('\n').filter(l => /^\s*(REQUIRED|WARNING)/.test(l))) console.log('  ' + line.trim().slice(0, 260));
+await b.close();

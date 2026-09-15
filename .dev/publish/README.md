@@ -44,6 +44,46 @@ env -u CLOUDFLARE_API_TOKEN node release.mjs \
   --tested 7.0 --requires 6.6 --requires-php 7.4
 ```
 
+## Documentation images
+
+The documentation page (`colorlib-docs-page.php`, page 381549) embeds 21
+screenshots and animations from the media library, found **by file name**, with
+alt text set once by the importer from `docs-images/manifest.json`. How they were
+captured is in `.dev/docs-capture/README.md`.
+
+```bash
+scp docs/final/*.{png,jpg,gif} .dev/publish/docs-images/{manifest.json,import.php} hetzner:/tmp/pato-docs/
+ssh hetzner 'sudo chmod -R a+rX /tmp/pato-docs && cd /var/www/colorlib.com/public \
+  && sudo -u web_colorlib_com wp --url=https://colorlib.com/wp/ --user=aigars eval "require \"/tmp/pato-docs/import.php\";"'
+```
+
+The docs script refuses to save while any image is missing or a `%%PLACEHOLDER%%`
+remains, and reports anchors without a target.
+
+- **colorlib.com stores uploads with no month folder**, so `_wp_attached_file`
+  is `name.png`, not `2026/09/name.png`. A lookup of `LIKE '%/name.png'` never
+  matches there: the first rerun of the importer re-imported all 20 images as
+  `name-1.png` (removed again). Match `= name OR LIKE '%/name'`.
+- **GIFs are safe from the AVIF sidecars**: `wp-avif-convert` and the nginx
+  `avif-location` rule only handle jpg/jpeg/png, so an animated GIF is never
+  swapped for a still AVIF.
+
+## After every release: the schema's cached version
+
+`schema-wp-themes.php` caches `updates.colorlib.com/theme/pato.json` in the
+transient `colorlib_selfhosted_pato` with a 12-hour TTL — but on 15 September 2026
+it still held **1.0.0**, a day after 1.1.0 shipped, so the product page's
+`softwareVersion` was two releases stale. The TTL is not being honoured. Delete
+it after publishing a release row, then check the page:
+
+```bash
+ssh hetzner 'cd /var/www/colorlib.com/public && sudo -u web_colorlib_com wp --url=https://colorlib.com/wp/ transient delete colorlib_selfhosted_pato'
+curl -s "https://colorlib.com/wp/themes/pato/?cb=$(date +%s)" | grep -o '"softwareVersion":"[^"]*"'
+```
+
+The product page's spec table carries **Tested up to** as literal text in
+`colorlib-product-page.php`; bump it there and rerun the script.
+
 ## Two maps on colorlib.com that also need the theme
 
 Both in `wp-content/mu-plugins/`, one line each:
