@@ -16,7 +16,9 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- wp:pattern {"slug":"pato/welcome-fine-dining"} /-->
 
-<!-- wp:pattern {"slug":"pato/set-menu"} /-->
+<!-- wp:pattern {"slug":"pato/menu-fine-dining"} /-->
+
+<!-- wp:pattern {"slug":"pato/gallery-fine-dining"} /-->
 
 <!-- wp:pattern {"slug":"pato/press"} /-->
 

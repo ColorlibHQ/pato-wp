@@ -14,13 +14,13 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <!-- wp:pattern {"slug":"pato/hero-bar"} /-->
 
-<!-- wp:pattern {"slug":"pato/menu-drinks"} /-->
+<!-- wp:pattern {"slug":"pato/menu-bar"} /-->
 
-<!-- wp:pattern {"slug":"pato/specials"} /-->
+<!-- wp:pattern {"slug":"pato/specials-bar"} /-->
 
 <!-- wp:pattern {"slug":"pato/events"} /-->
 
-<!-- wp:pattern {"slug":"pato/gallery"} /-->
+<!-- wp:pattern {"slug":"pato/gallery-bar"} /-->
 
 <!-- wp:pattern {"slug":"pato/private-dining"} /-->
 

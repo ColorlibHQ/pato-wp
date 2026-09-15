@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Gallery grid
- * Slug: pato/gallery
+ * Title: Gallery: Bar
+ * Slug: pato/gallery-bar
  * Categories: pato-sections, gallery
- * Keywords: gallery, photos, images
- * Description: Six photographs in two rows of three.
+ * Keywords: gallery, bar
+ * Description: The bar starter's gallery.
  * Viewport Width: 1400
  *
  * @package Pato
@@ -30,19 +30,19 @@ defined( 'ABSPATH' ) || exit;
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-kitchen.avif' ) ); ?>" alt="A chef plating a dish at the pass of an open kitchen" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/drink-cocktail.avif' ) ); ?>" alt="A bartender straining a cocktail into a glass" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-banquet.avif' ) ); ?>" alt="A tall arrangement of roses on a laid banquet table" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/whisky-toast.avif' ) ); ?>" alt="Three people touching whisky glasses together" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-market.avif' ) ); ?>" alt="Visitors at an outdoor Christmas market" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/wine-in-hand.avif' ) ); ?>" alt="A hand holding a glass of red wine in a busy bar" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -50,19 +50,19 @@ defined( 'ABSPATH' ) || exit;
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-champagne.avif' ) ); ?>" alt="A waiter carrying a tray of filled champagne flutes" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/bar-counter-long.avif' ) ); ?>" alt="A long bar counter set with wine glasses" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/pastry-tiers.avif' ) ); ?>" alt="Tiered stands of bread, pastries and croissants" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/bar-table.avif' ) ); ?>" alt="A bar table with wine glasses and red napkins" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-toast.avif' ) ); ?>" alt="Three people touching whisky glasses together over a laid table" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/canapes-strawberry.avif' ) ); ?>" alt="Strawberry and cheese canapes on sticks" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

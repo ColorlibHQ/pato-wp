@@ -16,13 +16,13 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- wp:pattern {"slug":"pato/welcome-bakery"} /-->
 
-<!-- wp:pattern {"slug":"pato/menu-course"} /-->
+<!-- wp:pattern {"slug":"pato/menu-bakery"} /-->
 
-<!-- wp:pattern {"slug":"pato/specials"} /-->
+<!-- wp:pattern {"slug":"pato/specials-bakery"} /-->
 
 <!-- wp:pattern {"slug":"pato/gift-cards"} /-->
 
-<!-- wp:pattern {"slug":"pato/gallery"} /-->
+<!-- wp:pattern {"slug":"pato/gallery-bakery"} /-->
 
 <!-- wp:pattern {"slug":"pato/opening-hours"} /-->
 

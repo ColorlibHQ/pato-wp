@@ -667,7 +667,7 @@ def build_gallery():
         ("gallery-banquet", "A tall arrangement of roses on a laid banquet table"),
         ("gallery-market", "Visitors at an outdoor Christmas market"),
         ("gallery-champagne", "A waiter carrying a tray of filled champagne flutes"),
-        ("gallery-sandwiches", "Club sandwiches cut into triangles on a wooden board"),
+        ("pastry-tiers", "Tiered stands of bread, pastries and croissants"),
         ("gallery-toast", "Three people touching whisky glasses together over a laid table"),
     ]
     tiles = "\n".join(
@@ -693,7 +693,7 @@ def build_gallery():
 
 def build_chefs():
     people = [
-        ("chef-flambe", "A chef cooking over a flaring pan", "Marco Vitale", "Head chef"),
+        ("canapes-caviar", "Canapes with caviar and cured ham on a dark slate", "Marco Vitale", "Head chef"),
         ("chef-pastry", "A pastry chef arranging chocolates on a counter", "Ines Duarte", "Pastry"),
         ("gallery-kitchen", "A chef plating a dish at the pass", "Sam Okonjo", "Sous chef"),
     ]
@@ -1154,7 +1154,7 @@ STARTERS = {
         "eyebrow": "Tasting menu",
         "title": "Eight courses, one sitting",
         "blurb": "One menu a night, written that morning, served from seven. Twenty-four seats and a kitchen you can see into.",
-        "sections": ["welcome", "set-menu", "press", "chefs",
+        "sections": ["welcome", "set-menu", "gallery", "press", "chefs",
                      "private-dining", "reservation", "allergens"],
         "cta": [("Reserve a seat", "#pato-reservation"), ("Tonight's menu", "#menu")],
     },
@@ -1165,7 +1165,7 @@ STARTERS = {
         "welcome": ("Since 2011", "The corner everyone claims",
                     "Coffee roasted eight miles away, pastries out of the oven at eight, and a lunch menu that changes when the market does.",
                     "There is no time limit on a table and the wifi password is on the board. Stay as long as you like.",
-                    "dish-baked-apple", "A baked apple with strawberry and blueberries in a pool of custard"),
+                    "cheesecake", "A slice of cheesecake with raspberry coulis"),
         "photo": "dish-baked-apple",
         "eyebrow": "All day",
         "title": "Coffee, cake and a quiet corner",
@@ -1186,7 +1186,7 @@ STARTERS = {
         "eyebrow": "Wood fired",
         "title": "Ninety seconds in a very hot oven",
         "blurb": "Dough proved for two days, tomatoes from one farm, and a queue out the door most Fridays. Eat in or take it home.",
-        "sections": ["menu-lunch-dinner", "delivery", "welcome", "reviews",
+        "sections": ["menu-lunch-dinner", "gallery", "delivery", "welcome", "reviews",
                      "specials", "opening-hours", "map"],
         "cta": [("Order now", "#order"), ("See the menu", "#menu")],
     },
@@ -1222,6 +1222,156 @@ STARTERS = {
                      "gallery", "opening-hours", "delivery"],
         "cta": [("What we bake", "#menu"), ("Order a collection", "#order")],
     },
+}
+
+
+
+# ---------------------------------------------------------------------------
+# Per-starter content
+# ---------------------------------------------------------------------------
+# The first cut gave each starter its own hero and introduction and then reused
+# one menu, one set of specials and one gallery across all six. A pizzeria's
+# menu read "Smoked salmon & leaf salad" and a bakery's gallery was the same
+# six photographs as the bar's — which is six photographs of one brief, not six
+# briefs. Each venue now has its own dishes, its own offers and its own room.
+
+STARTER_MENU = {
+    "bistro": ("Lunch", "Served 11:00 &ndash; 16:00", [
+        ("Whole prawns, garlic a\u00efoli", "$21", "Grilled over charcoal, lemon"),
+        ("Griddled pork chop", "$19", "Charred greens, mustard cream"),
+        ("Beef fillet, wild mushrooms", "$26", "Red wine reduction, pomme pur\u00e9e"),
+        ("Smoked salmon &amp; leaf salad", "$14", "Cured in-house, soft herbs, lemon"),
+        ("Pumpkin &amp; sage ravioli", "$17", "Brown butter, toasted hazelnut"),
+    ]),
+    "fine-dining": ("Tonight", "One sitting, from 19:00", [
+        ("Oyster, cucumber, dill", "&mdash;", "Served on ice, first course"),
+        ("Langoustine, brown butter", "&mdash;", "Shell bisque poured at the table"),
+        ("Turbot, mussel, sea herbs", "&mdash;", "Cooked on the bone"),
+        ("Aged duck, cherry, chicory", "&mdash;", "Dry-aged twenty-one days"),
+        ("Caramel, buttermilk, malt", "&mdash;", "To finish"),
+    ]),
+    "cafe": ("The counter", "From 07:00, until it is gone", [
+        ("Butter croissant", "$3.50", "Laminated here, baked at six"),
+        ("Cinnamon roulade", "$4.50", "Cardamom sugar, soft centre"),
+        ("Lemon &amp; poppy slice", "$4", "With a flat white, $7"),
+        ("Toasted sourdough, avocado", "$9", "Chilli, lime, soft egg $2"),
+        ("Soup of the day", "$8", "Whatever the market had"),
+    ]),
+    "pizzeria": ("Pizza", "Wood fired, ninety seconds", [
+        ("Margherita", "$12", "San Marzano, fior di latte, basil"),
+        ("Diavola", "$15", "Spianata piccante, chilli honey"),
+        ("Quattro formaggi", "$16", "Taleggio, gorgonzola, pecorino, mozzarella"),
+        ("Funghi e tartufo", "$17", "Chestnut mushroom, truffle cream"),
+        ("Marinara", "$10", "No cheese, no apology"),
+    ]),
+    "bar": ("Cocktails", "Until late, every night", [
+        ("Negroni, stirred over a rock", "$13", "Campari, vermouth di Torino, gin"),
+        ("Espresso martini", "$14", "Pulled to order, never pre-batched"),
+        ("Smoked old fashioned", "$15", "Rye, demerara, cherry wood"),
+        ("House spritz", "$11", "Whatever we are infusing this month"),
+        ("Alcohol-free grapefruit", "$8", "Seedlip, grapefruit, soda"),
+    ]),
+    "bakery": ("This morning", "Out of the oven at six", [
+        ("Country sourdough", "$6", "48-hour ferment, 1kg loaf"),
+        ("Pain au chocolat", "$3.80", "Two batons, laminated Friday"),
+        ("Rye &amp; caraway", "$6.50", "Dense crumb, keeps a week"),
+        ("Almond croissant", "$4.20", "Yesterday's croissant, improved"),
+        ("Seasonal galette", "$5.50", "Whatever the fruit man brought"),
+    ]),
+}
+
+STARTER_SPECIALS = {
+    "bistro": [
+        ("Monday", "Half-price bottles", "Every bottle under $60, from 17:00."),
+        ("Wednesday", "Two for one on the grill", "Any two mains from the fire, one price."),
+        ("Thursday", "Wine night", "Six glasses, six growers, $55 a head."),
+        ("Sunday", "Long lunch", "Three courses and a glass, $38, noon until four."),
+    ],
+    "fine-dining": [
+        ("Tuesday", "Chef's table", "Six seats at the pass, the full menu, $145."),
+        ("Thursday", "Wine pairing", "A glass with every course, $70."),
+        ("Friday", "Late seating", "One table at 21:30, released that morning."),
+        ("Sunday", "Closed", "The kitchen rests and so does the fire."),
+    ],
+    "cafe": [
+        ("Weekdays", "Coffee &amp; pastry", "Any filter and any pastry, $6, before ten."),
+        ("Wednesday", "Cake at four", "Whatever came out last, half price from 16:00."),
+        ("Saturday", "Brunch until two", "The full menu, no time limit on the table."),
+        ("Every day", "Bring your own cup", "50c off, and one less cup in the bin."),
+    ],
+    "pizzeria": [
+        ("Monday", "Margherita &amp; a beer", "$15, eat in or take away."),
+        ("Tuesday", "Two pizzas, one price", "Any two from the wood oven, $22."),
+        ("Thursday", "Aperitivo", "Spritz and a marinara, $12, 17:00 &ndash; 19:00."),
+        ("Weekends", "Collection only after nine", "The queue is long and honest."),
+    ],
+    "bar": [
+        ("Monday", "Industry night", "Anyone who works in hospitality, 25% off."),
+        ("Wednesday", "Martini hour", "Every martini $9, 17:00 &ndash; 19:00."),
+        ("Friday", "Records from seven", "Someone behind the decks, nobody charging for it."),
+        ("Sunday", "Last orders at one", "Later than anywhere else on this street."),
+    ],
+    "bakery": [
+        ("Every morning", "First loaf at six", "Queue forms about ten to."),
+        ("Wednesday", "Bake club", "Whatever we are testing, free, while it lasts."),
+        ("Saturday", "Viennoiserie only", "The full laminated range, one day a week."),
+        ("End of day", "Half price from five", "When it is gone, it is gone."),
+    ],
+}
+
+STARTER_GALLERY = {
+    # Written from the photographs, not from their filenames. The first pass
+    # named these from guessed source files and about half were wrong: a bakery
+    # gallery captioned "whole cooked prawns", a bistro "bar" that was a
+    # mountain village at night. Every slug below was checked against the image.
+    "bistro": [
+        ("kitchen-open", "The open kitchen seen from the dining room"),
+        ("salad-plated", "A plated salad with a glass of white wine behind it"),
+        ("table-warm", "A table laid with plates and wine in a warm room"),
+        ("steak-plated", "A seared steak with charred broccoli on a white plate"),
+        ("chicken-plated", "Roast chicken with a tomato and leaf salad"),
+        ("gallery-champagne", "A waiter carrying a tray of filled champagne flutes"),
+    ],
+    "fine-dining": [
+        ("canapes-caviar", "Canapes with caviar and cured ham on a dark slate"),
+        ("canapes-spoons", "A row of tasting spoons on a dark board"),
+        ("prosciutto-plated", "A plated dish finished with cured ham"),
+        ("dish-baked", "A baked roulade with onion rings on a dark plate"),
+        ("table-candlelit", "A wine bottle and glasses on a candlelit table"),
+        ("gallery-kitchen", "A chef plating a dish at the pass of an open kitchen"),
+    ],
+    "cafe": [
+        ("cupcakes", "Iced cupcakes on a cake stand"),
+        ("tartlets", "A hand setting a cherry onto cream-filled tartlets"),
+        ("petit-fours", "Layered petit fours topped with strawberries"),
+        ("cheesecake", "A slice of cheesecake with raspberry coulis"),
+        ("salad-green", "A green salad with smoked salmon"),
+        ("table-laid", "A long table laid with glasses and juice"),
+    ],
+    "pizzeria": [
+        ("post-pizza", "A hand lifting a slice from a pizza on a floured board"),
+        ("pizza-slices", "Slices of topped flatbread, close up"),
+        ("steak-fire", "A steak cooking over open flames"),
+        ("table-bottle", "A wine bottle and glasses on a laid table"),
+        ("kitchen-open", "The open kitchen seen from the dining room"),
+        ("plate-sausages", "Sausages with penne, tomato and salad leaves"),
+    ],
+    "bar": [
+        ("drink-cocktail", "A bartender straining a cocktail into a glass"),
+        ("whisky-toast", "Three people touching whisky glasses together"),
+        ("wine-in-hand", "A hand holding a glass of red wine in a busy bar"),
+        ("bar-counter-long", "A long bar counter set with wine glasses"),
+        ("bar-table", "A bar table with wine glasses and red napkins"),
+        ("canapes-strawberry", "Strawberry and cheese canapes on sticks"),
+    ],
+    "bakery": [
+        ("pastry-tiers", "Tiered stands of bread, pastries and croissants"),
+        ("chocolatier", "A pastry chef arranging chocolates on a counter"),
+        ("cupcakes", "Iced cupcakes on a cake stand"),
+        ("petit-fours", "Layered petit fours topped with strawberries"),
+        ("gallery-sandwiches", "Club sandwiches cut into triangles on a wooden board"),
+        ("cheesecake", "A slice of cheesecake with raspberry coulis"),
+    ],
 }
 
 
@@ -1274,7 +1424,67 @@ def build_starters():
               viewport=1400,
               description="The %s starter's introduction." % cfg["name"].lower())
 
-        sections = ["welcome-%s" % slug if x == "welcome" else x for x in cfg["sections"]]
+        # --- its own menu -------------------------------------------------
+        col_title, col_note, dishes = STARTER_MENU[slug]
+        menu_inner = "\n".join([
+            section_head(cfg["eyebrow"], col_title, col_note),
+            spacer("60"),
+            group("\n".join(dish(n, pr, d) for n, pr, d in dishes),
+                  layout="constrained", content_size="820px", gap="40"),
+        ])
+        write("menu-%s" % slug, "Menu: %s" % cfg["name"],
+              group(menu_inner, align="full", padding_y="70", anchor="menu"),
+              categories=["pato-menu"], keywords=["menu", slug], viewport=1400,
+              description="The %s starter's menu." % cfg["name"].lower())
+
+        # --- its own offers -----------------------------------------------
+        cards = "\n".join(
+            column(group("\n".join([
+                heading(when, level=3, style="pato-script", align="center",
+                        extra_class="pato-section__script"),
+                heading(title, level=4, size="large", align="center", margin_bottom="20"),
+                paragraph(note, align="center", color="muted", size="small"),
+            ]), gap="20", style="card"), width="25%")
+            for when, title, note in STARTER_SPECIALS[slug]
+        )
+        specials_inner = "\n".join([
+            section_head("Every week", "What is on when"),
+            spacer("60"),
+            wide_row(cards, gap="40"),
+        ])
+        write("specials-%s" % slug, "Specials: %s" % cfg["name"],
+              group(specials_inner, align="full", padding_y="70", background="surface"),
+              categories=["pato-sections"], keywords=["specials", slug], viewport=1400,
+              description="The %s starter's weekly offers." % cfg["name"].lower())
+
+        # --- its own room -------------------------------------------------
+        shots = STARTER_GALLERY[slug]
+        row1 = "\n".join(column(image(sl, alt, ratio="1", style="pato-lift", rounded="6px"),
+                                width="33.33%") for sl, alt in shots[:3])
+        row2 = "\n".join(column(image(sl, alt, ratio="1", style="pato-lift", rounded="6px"),
+                                width="33.33%") for sl, alt in shots[3:])
+        gallery_inner = "\n".join([
+            section_head("The room", "A look around"),
+            spacer("60"), photo_row(row1), photo_row(row2),
+        ])
+        write("gallery-%s" % slug, "Gallery: %s" % cfg["name"],
+              group(gallery_inner, align="full", padding_y="70", background="surface",
+                    anchor="gallery"),
+              categories=["pato-sections", "gallery"], keywords=["gallery", slug],
+              viewport=1400,
+              description="The %s starter's gallery." % cfg["name"].lower())
+
+        # Swap the shared sections for this starter's own.
+        per_starter = {
+            "welcome": "welcome-%s" % slug,
+            "menu-lunch-dinner": "menu-%s" % slug,
+            "menu-drinks": "menu-%s" % slug,
+            "menu-course": "menu-%s" % slug,
+            "set-menu": "menu-%s" % slug,
+            "specials": "specials-%s" % slug,
+            "gallery": "gallery-%s" % slug,
+        }
+        sections = [per_starter.get(x, x) for x in cfg["sections"]]
 
         write("demo-%s" % slug, "Starter: %s" % cfg["name"],
               "\n\n".join([ref("hero-%s" % slug)] + [ref(x) for x in sections]),

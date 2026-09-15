@@ -16,14 +16,14 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- wp:pattern {"slug":"pato/welcome-bistro"} /-->
 
-<!-- wp:pattern {"slug":"pato/menu-lunch-dinner"} /-->
+<!-- wp:pattern {"slug":"pato/menu-bistro"} /-->
 
-<!-- wp:pattern {"slug":"pato/specials"} /-->
+<!-- wp:pattern {"slug":"pato/specials-bistro"} /-->
 
 <!-- wp:pattern {"slug":"pato/reviews"} /-->
 
 <!-- wp:pattern {"slug":"pato/reservation"} /-->
 
-<!-- wp:pattern {"slug":"pato/gallery"} /-->
+<!-- wp:pattern {"slug":"pato/gallery-bistro"} /-->
 
 <!-- wp:pattern {"slug":"pato/blog-latest"} /-->

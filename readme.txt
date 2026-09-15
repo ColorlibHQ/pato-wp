@@ -4,7 +4,7 @@ Contributors: colorlib
 Requires at least: 6.6
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: food-and-drink, blog, full-site-editing, block-patterns, block-styles, template-editing, wide-blocks, accessibility-ready, translation-ready, custom-colors, custom-menu, custom-logo, featured-images, threaded-comments, one-column, two-columns, right-sidebar, rtl-language-support, sticky-post, theme-options
@@ -109,6 +109,10 @@ Photographs in assets/images/
   into assets/images/ under the same names.
 
 == Changelog ==
+
+= 1.1.0 =
+* Each starter site now has its own menu, offers and gallery rather than sharing one set.
+* 20 more photographs; alt text corrected throughout.
 
 = 1.0.0 =
 * Initial release.

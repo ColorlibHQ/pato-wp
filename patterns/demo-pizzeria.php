@@ -14,7 +14,9 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <!-- wp:pattern {"slug":"pato/hero-pizzeria"} /-->
 
-<!-- wp:pattern {"slug":"pato/menu-lunch-dinner"} /-->
+<!-- wp:pattern {"slug":"pato/menu-pizzeria"} /-->
+
+<!-- wp:pattern {"slug":"pato/gallery-pizzeria"} /-->
 
 <!-- wp:pattern {"slug":"pato/delivery"} /-->
 
@@ -22,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- wp:pattern {"slug":"pato/reviews"} /-->
 
-<!-- wp:pattern {"slug":"pato/specials"} /-->
+<!-- wp:pattern {"slug":"pato/specials-pizzeria"} /-->
 
 <!-- wp:pattern {"slug":"pato/opening-hours"} /-->
 

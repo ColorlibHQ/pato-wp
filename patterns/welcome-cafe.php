@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="wp-block-group alignfull" id="about" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:columns {"verticalAlignment":"center","align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|60","left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns alignwide are-vertically-aligned-center"><!-- wp:column {"width":"46%"} -->
 <div class="wp-block-column" style="flex-basis:46%"><!-- wp:image {"aspectRatio":"4/5","scale":"cover","sizeSlug":"large","linkDestination":"none","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/dish-baked-apple.avif' ) ); ?>" alt="A baked apple with strawberry and blueberries in a pool of custard" style="border-radius:6px;aspect-ratio:4/5;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/cheesecake.avif' ) ); ?>" alt="A slice of cheesecake with raspberry coulis" style="border-radius:6px;aspect-ratio:4/5;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 

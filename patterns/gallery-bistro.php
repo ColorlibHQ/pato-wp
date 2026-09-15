@@ -1,10 +1,10 @@
 <?php
 /**
- * Title: Gallery grid
- * Slug: pato/gallery
+ * Title: Gallery: Bistro
+ * Slug: pato/gallery-bistro
  * Categories: pato-sections, gallery
- * Keywords: gallery, photos, images
- * Description: Six photographs in two rows of three.
+ * Keywords: gallery, bistro
+ * Description: The bistro starter's gallery.
  * Viewport Width: 1400
  *
  * @package Pato
@@ -30,19 +30,19 @@ defined( 'ABSPATH' ) || exit;
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-kitchen.avif' ) ); ?>" alt="A chef plating a dish at the pass of an open kitchen" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/kitchen-open.avif' ) ); ?>" alt="The open kitchen seen from the dining room" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-banquet.avif' ) ); ?>" alt="A tall arrangement of roses on a laid banquet table" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/salad-plated.avif' ) ); ?>" alt="A plated salad with a glass of white wine behind it" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-market.avif' ) ); ?>" alt="Visitors at an outdoor Christmas market" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/table-warm.avif' ) ); ?>" alt="A table laid with plates and wine in a warm room" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -50,19 +50,19 @@ defined( 'ABSPATH' ) || exit;
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/steak-plated.avif' ) ); ?>" alt="A seared steak with charred broccoli on a white plate" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"33.33%"} -->
+<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/chicken-plated.avif' ) ); ?>" alt="Roast chicken with a tomato and leaf salad" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"33.33%"} -->
+<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
 <figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-champagne.avif' ) ); ?>" alt="A waiter carrying a tray of filled champagne flutes" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"33.33%"} -->
-<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/pastry-tiers.avif' ) ); ?>" alt="Tiered stands of bread, pastries and croissants" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":"33.33%"} -->
-<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:image {"aspectRatio":"1","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/gallery-toast.avif' ) ); ?>" alt="Three people touching whisky glasses together over a laid table" style="border-radius:6px;aspect-ratio:1;object-fit:cover"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

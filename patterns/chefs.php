@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"aspectRatio":"3/4","scale":"cover","sizeSlug":"large","linkDestination":"none","className":"is-style-pato-lift","style":{"border":{"radius":"6px"}}} -->
-<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/chef-flambe.avif' ) ); ?>" alt="A chef cooking over a flaring pan" style="border-radius:6px;aspect-ratio:3/4;object-fit:cover"/></figure>
+<figure class="wp-block-image size-large has-custom-border is-style-pato-lift"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/canapes-caviar.avif' ) ); ?>" alt="Canapes with caviar and cured ham on a dark slate" style="border-radius:6px;aspect-ratio:3/4;object-fit:cover"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"typography":{"textAlign":"center"}},"fontSize":"x-large"} -->

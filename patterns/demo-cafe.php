@@ -16,11 +16,11 @@ defined( 'ABSPATH' ) || exit;
 
 <!-- wp:pattern {"slug":"pato/welcome-cafe"} /-->
 
-<!-- wp:pattern {"slug":"pato/menu-drinks"} /-->
+<!-- wp:pattern {"slug":"pato/menu-cafe"} /-->
 
-<!-- wp:pattern {"slug":"pato/specials"} /-->
+<!-- wp:pattern {"slug":"pato/specials-cafe"} /-->
 
-<!-- wp:pattern {"slug":"pato/gallery"} /-->
+<!-- wp:pattern {"slug":"pato/gallery-cafe"} /-->
 
 <!-- wp:pattern {"slug":"pato/gift-cards"} /-->
 

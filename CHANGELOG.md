@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.1.0] - September 2026
+
+The six starter sites are now six restaurants rather than one restaurant in six
+colours.
+
+1.0.0 gave each starter its own opening screen and its own introduction, and
+then reused a single menu, a single set of offers and a single gallery across
+all of them. A pizzeria's menu read "Smoked salmon & leaf salad" and a bakery's
+gallery was the same six photographs as the bar's. Each starter now has:
+
+- **Its own menu.** The pizzeria lists a Margherita, a Diavola and a Marinara;
+  the bar lists a Negroni and an espresso martini; the bakery lists sourdough
+  and pain au chocolat, priced accordingly.
+- **Its own weekly offers**, in the venue's own language — industry night at
+  the bar, bake club at the bakery, aperitivo at the pizzeria.
+- **Its own gallery**, six photographs that belong to that kind of place.
+
+Measured across the six demo pages: no photograph and no dish now appears in
+all six, and most pairs share nothing at all. The two that overlap are the café
+and the bakery, which genuinely do serve the same cakes.
+
+### Added
+
+- 20 photographs, bringing the theme to 47.
+- Galleries on the pizzeria and fine-dining starters, which had one and five
+  photographs on a whole page.
+
+### Fixed
+
+- **Alt text described the wrong pictures.** The new photographs were named
+  from guessed source filenames and about half were wrong — a bakery gallery
+  captioned "whole cooked prawns", a bistro "bar" that was a mountain village
+  at night. Every image was checked against its file and renamed for what it
+  actually shows.
+- Removed ten images nothing referenced.
+
 ## [1.0.0] - September 2026
 
 First release. A block theme for restaurants, built from the Pato HTML
