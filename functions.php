@@ -52,7 +52,7 @@ add_action( 'after_setup_theme', 'pato_setup' );
  * Front-end styles.
  */
 function pato_enqueue_styles() {
-	wp_enqueue_style( 'pato-style', get_stylesheet_uri(), array(), PATO_VERSION );
+	wp_enqueue_style( 'pato-wp-pato-style', get_stylesheet_uri(), array(), PATO_VERSION );
 }
 add_action( 'wp_enqueue_scripts', 'pato_enqueue_styles' );
 

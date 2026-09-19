@@ -55,9 +55,9 @@ function pato_enqueue_form_styles() {
 	// Pato's own reservation form is always a possibility, so the stylesheet
 	// is not conditional on a plugin being present — it carries both.
 	wp_enqueue_style(
-		'pato-forms',
+		'pato-wp-pato-forms',
 		get_template_directory_uri() . '/assets/css/forms.css',
-		array( 'pato-style' ),
+		array( 'pato-wp-pato-style' ),
 		PATO_VERSION
 	);
 }
