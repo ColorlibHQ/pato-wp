@@ -75,14 +75,14 @@ function pato_scheme_assets() {
 	}
 
 	wp_enqueue_style(
-		'pato-wp-pato-scheme',
+		'pato-scheme',
 		get_template_directory_uri() . '/assets/css/scheme.css',
-		array( 'pato-wp-pato-style' ),
+		array( 'pato-style' ),
 		PATO_VERSION
 	);
 
 	wp_enqueue_script(
-		'pato-wp-pato-scheme-toggle',
+		'pato-scheme-toggle',
 		get_template_directory_uri() . '/assets/js/scheme-toggle.js',
 		array(),
 		PATO_VERSION,

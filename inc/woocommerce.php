@@ -55,9 +55,9 @@ function pato_woocommerce_styles() {
 	}
 
 	wp_enqueue_style(
-		'pato-wp-pato-woocommerce',
+		'pato-woocommerce',
 		get_template_directory_uri() . '/assets/css/woocommerce.css',
-		array( 'pato-wp-pato-style' ),
+		array( 'pato-style' ),
 		PATO_VERSION
 	);
 }
