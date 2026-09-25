@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.2
+
+- Update requests no longer name the site. WordPress's default User-Agent carries the site address; the update check and core's package download to updates.colorlib.com now send only the theme and WordPress versions, so the one-way site identifier is the only thing that tells installs apart.
+
 ## [1.1.1] - September 2026
 
 Pages built by Pato no longer open in the editor with "This block contains
